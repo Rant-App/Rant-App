@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5BB1EF3709CC29A4C9F41060 /* Pods_Rant_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7CDC2DDA2E3F5F8D329C5D /* Pods_Rant_App.framework */; };
+		C167BD531C84CB380010A2C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C167BD521C84CB380010A2C2 /* AppDelegate.swift */; };
+		C167BD551C84CB380010A2C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C167BD541C84CB380010A2C2 /* ViewController.swift */; };
+		C167BD581C84CB380010A2C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C167BD561C84CB380010A2C2 /* Main.storyboard */; };
+		C167BD5A1C84CB380010A2C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C167BD591C84CB380010A2C2 /* Assets.xcassets */; };
+		C167BD5D1C84CB380010A2C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C167BD5B1C84CB380010A2C2 /* LaunchScreen.storyboard */; };
+		C167BD681C84CB380010A2C2 /* Rant_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C167BD671C84CB380010A2C2 /* Rant_AppTests.swift */; };
+		C167BD731C84CB380010A2C2 /* Rant_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C167BD721C84CB380010A2C2 /* Rant_AppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C167BD641C84CB380010A2C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C167BD471C84CB380010A2C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C167BD4E1C84CB380010A2C2;
+			remoteInfo = "Rant App";
+		};
+		C167BD6F1C84CB380010A2C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C167BD471C84CB380010A2C2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C167BD4E1C84CB380010A2C2;
+			remoteInfo = "Rant App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		58E2553E62999CC39120390C /* Pods-Rant App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rant App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rant App/Pods-Rant App.release.xcconfig"; sourceTree = "<group>"; };
+		85BD28973958542F5D704F9D /* Pods-Rant App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rant App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rant App/Pods-Rant App.debug.xcconfig"; sourceTree = "<group>"; };
+		C167BD4F1C84CB380010A2C2 /* Rant App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rant App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C167BD521C84CB380010A2C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C167BD541C84CB380010A2C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C167BD571C84CB380010A2C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C167BD591C84CB380010A2C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C167BD5C1C84CB380010A2C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C167BD5E1C84CB380010A2C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C167BD631C84CB380010A2C2 /* Rant AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rant AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C167BD671C84CB380010A2C2 /* Rant_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rant_AppTests.swift; sourceTree = "<group>"; };
+		C167BD691C84CB380010A2C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C167BD6E1C84CB380010A2C2 /* Rant AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rant AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C167BD721C84CB380010A2C2 /* Rant_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rant_AppUITests.swift; sourceTree = "<group>"; };
+		C167BD741C84CB380010A2C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD7CDC2DDA2E3F5F8D329C5D /* Pods_Rant_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rant_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C167BD4C1C84CB380010A2C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BB1EF3709CC29A4C9F41060 /* Pods_Rant_App.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C167BD601C84CB380010A2C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C167BD6B1C84CB380010A2C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1AF6348214286886958CE4EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD7CDC2DDA2E3F5F8D329C5D /* Pods_Rant_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C167BD461C84CB380010A2C2 = {
+			isa = PBXGroup;
+			children = (
+				C167BD511C84CB380010A2C2 /* Rant App */,
+				C167BD661C84CB380010A2C2 /* Rant AppTests */,
+				C167BD711C84CB380010A2C2 /* Rant AppUITests */,
+				C167BD501C84CB380010A2C2 /* Products */,
+				D818F03974F1F690B08D6101 /* Pods */,
+				1AF6348214286886958CE4EE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C167BD501C84CB380010A2C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C167BD4F1C84CB380010A2C2 /* Rant App.app */,
+				C167BD631C84CB380010A2C2 /* Rant AppTests.xctest */,
+				C167BD6E1C84CB380010A2C2 /* Rant AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C167BD511C84CB380010A2C2 /* Rant App */ = {
+			isa = PBXGroup;
+			children = (
+				C167BD521C84CB380010A2C2 /* AppDelegate.swift */,
+				C167BD541C84CB380010A2C2 /* ViewController.swift */,
+				C167BD561C84CB380010A2C2 /* Main.storyboard */,
+				C167BD591C84CB380010A2C2 /* Assets.xcassets */,
+				C167BD5B1C84CB380010A2C2 /* LaunchScreen.storyboard */,
+				C167BD5E1C84CB380010A2C2 /* Info.plist */,
+			);
+			path = "Rant App";
+			sourceTree = "<group>";
+		};
+		C167BD661C84CB380010A2C2 /* Rant AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				C167BD671C84CB380010A2C2 /* Rant_AppTests.swift */,
+				C167BD691C84CB380010A2C2 /* Info.plist */,
+			);
+			path = "Rant AppTests";
+			sourceTree = "<group>";
+		};
+		C167BD711C84CB380010A2C2 /* Rant AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C167BD721C84CB380010A2C2 /* Rant_AppUITests.swift */,
+				C167BD741C84CB380010A2C2 /* Info.plist */,
+			);
+			path = "Rant AppUITests";
+			sourceTree = "<group>";
+		};
+		D818F03974F1F690B08D6101 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				85BD28973958542F5D704F9D /* Pods-Rant App.debug.xcconfig */,
+				58E2553E62999CC39120390C /* Pods-Rant App.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C167BD4E1C84CB380010A2C2 /* Rant App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C167BD771C84CB380010A2C2 /* Build configuration list for PBXNativeTarget "Rant App" */;
+			buildPhases = (
+				3A19F82F22FE0B586ADA7C09 /* Check Pods Manifest.lock */,
+				C167BD4B1C84CB380010A2C2 /* Sources */,
+				C167BD4C1C84CB380010A2C2 /* Frameworks */,
+				C167BD4D1C84CB380010A2C2 /* Resources */,
+				8168D3508095A4D5723225A4 /* Embed Pods Frameworks */,
+				139DD4C72B57AE703CCF5FF2 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rant App";
+			productName = "Rant App";
+			productReference = C167BD4F1C84CB380010A2C2 /* Rant App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C167BD621C84CB380010A2C2 /* Rant AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C167BD7A1C84CB380010A2C2 /* Build configuration list for PBXNativeTarget "Rant AppTests" */;
+			buildPhases = (
+				C167BD5F1C84CB380010A2C2 /* Sources */,
+				C167BD601C84CB380010A2C2 /* Frameworks */,
+				C167BD611C84CB380010A2C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C167BD651C84CB380010A2C2 /* PBXTargetDependency */,
+			);
+			name = "Rant AppTests";
+			productName = "Rant AppTests";
+			productReference = C167BD631C84CB380010A2C2 /* Rant AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C167BD6D1C84CB380010A2C2 /* Rant AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C167BD7D1C84CB380010A2C2 /* Build configuration list for PBXNativeTarget "Rant AppUITests" */;
+			buildPhases = (
+				C167BD6A1C84CB380010A2C2 /* Sources */,
+				C167BD6B1C84CB380010A2C2 /* Frameworks */,
+				C167BD6C1C84CB380010A2C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C167BD701C84CB380010A2C2 /* PBXTargetDependency */,
+			);
+			name = "Rant AppUITests";
+			productName = "Rant AppUITests";
+			productReference = C167BD6E1C84CB380010A2C2 /* Rant AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C167BD471C84CB380010A2C2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Rant-App";
+				TargetAttributes = {
+					C167BD4E1C84CB380010A2C2 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = QHF3767G37;
+					};
+					C167BD621C84CB380010A2C2 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = QHF3767G37;
+						TestTargetID = C167BD4E1C84CB380010A2C2;
+					};
+					C167BD6D1C84CB380010A2C2 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = QHF3767G37;
+						TestTargetID = C167BD4E1C84CB380010A2C2;
+					};
+				};
+			};
+			buildConfigurationList = C167BD4A1C84CB380010A2C2 /* Build configuration list for PBXProject "Rant App" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C167BD461C84CB380010A2C2;
+			productRefGroup = C167BD501C84CB380010A2C2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C167BD4E1C84CB380010A2C2 /* Rant App */,
+				C167BD621C84CB380010A2C2 /* Rant AppTests */,
+				C167BD6D1C84CB380010A2C2 /* Rant AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C167BD4D1C84CB380010A2C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C167BD5D1C84CB380010A2C2 /* LaunchScreen.storyboard in Resources */,
+				C167BD5A1C84CB380010A2C2 /* Assets.xcassets in Resources */,
+				C167BD581C84CB380010A2C2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C167BD611C84CB380010A2C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C167BD6C1C84CB380010A2C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		139DD4C72B57AE703CCF5FF2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rant App/Pods-Rant App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3A19F82F22FE0B586ADA7C09 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8168D3508095A4D5723225A4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rant App/Pods-Rant App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C167BD4B1C84CB380010A2C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C167BD551C84CB380010A2C2 /* ViewController.swift in Sources */,
+				C167BD531C84CB380010A2C2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C167BD5F1C84CB380010A2C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C167BD681C84CB380010A2C2 /* Rant_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C167BD6A1C84CB380010A2C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C167BD731C84CB380010A2C2 /* Rant_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C167BD651C84CB380010A2C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C167BD4E1C84CB380010A2C2 /* Rant App */;
+			targetProxy = C167BD641C84CB380010A2C2 /* PBXContainerItemProxy */;
+		};
+		C167BD701C84CB380010A2C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C167BD4E1C84CB380010A2C2 /* Rant App */;
+			targetProxy = C167BD6F1C84CB380010A2C2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C167BD561C84CB380010A2C2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C167BD571C84CB380010A2C2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C167BD5B1C84CB380010A2C2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C167BD5C1C84CB380010A2C2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C167BD751C84CB380010A2C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C167BD761C84CB380010A2C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C167BD781C84CB380010A2C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85BD28973958542F5D704F9D /* Pods-Rant App.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Rant App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.lsrhs.epstein.Rant-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C167BD791C84CB380010A2C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58E2553E62999CC39120390C /* Pods-Rant App.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Rant App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.lsrhs.epstein.Rant-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C167BD7B1C84CB380010A2C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Rant AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.lsrhs.epstein.Rant-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rant App.app/Rant App";
+			};
+			name = Debug;
+		};
+		C167BD7C1C84CB380010A2C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Rant AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.lsrhs.epstein.Rant-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rant App.app/Rant App";
+			};
+			name = Release;
+		};
+		C167BD7E1C84CB380010A2C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Rant AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.lsrhs.epstein.Rant-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Rant App";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		C167BD7F1C84CB380010A2C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Rant AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.lsrhs.epstein.Rant-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Rant App";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C167BD4A1C84CB380010A2C2 /* Build configuration list for PBXProject "Rant App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C167BD751C84CB380010A2C2 /* Debug */,
+				C167BD761C84CB380010A2C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C167BD771C84CB380010A2C2 /* Build configuration list for PBXNativeTarget "Rant App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C167BD781C84CB380010A2C2 /* Debug */,
+				C167BD791C84CB380010A2C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C167BD7A1C84CB380010A2C2 /* Build configuration list for PBXNativeTarget "Rant AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C167BD7B1C84CB380010A2C2 /* Debug */,
+				C167BD7C1C84CB380010A2C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C167BD7D1C84CB380010A2C2 /* Build configuration list for PBXNativeTarget "Rant AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C167BD7E1C84CB380010A2C2 /* Debug */,
+				C167BD7F1C84CB380010A2C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C167BD471C84CB380010A2C2 /* Project object */;
+}

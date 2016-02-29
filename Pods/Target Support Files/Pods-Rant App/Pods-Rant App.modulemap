@@ -1,0 +1,6 @@
+framework module Pods_Rant_App {
+  umbrella header "Pods-Rant App-umbrella.h"
+
+  export *
+  module * { export * }
+}
