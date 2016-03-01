@@ -15,6 +15,19 @@
 		C167BD5D1C84CB380010A2C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C167BD5B1C84CB380010A2C2 /* LaunchScreen.storyboard */; };
 		C167BD681C84CB380010A2C2 /* Rant_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C167BD671C84CB380010A2C2 /* Rant_AppTests.swift */; };
 		C167BD731C84CB380010A2C2 /* Rant_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C167BD721C84CB380010A2C2 /* Rant_AppUITests.swift */; };
+		C1A4AF151C860A0B000DC1AD /* InitialTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF141C860A0B000DC1AD /* InitialTabBarController.swift */; };
+		C1A4AF171C860F47000DC1AD /* GeoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF161C860F47000DC1AD /* GeoTableViewController.swift */; };
+		C1A4AF191C860F82000DC1AD /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF181C860F82000DC1AD /* TagsTableViewController.swift */; };
+		C1A4AF1B1C860FCF000DC1AD /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF1A1C860FCF000DC1AD /* SearchTableViewController.swift */; };
+		C1A4AF1D1C860FEE000DC1AD /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF1C1C860FEE000DC1AD /* ProfileTableViewController.swift */; };
+		C1A4AF1F1C8612A4000DC1AD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF1E1C8612A4000DC1AD /* SettingsViewController.swift */; };
+		C1A4AF211C8612D0000DC1AD /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF201C8612D0000DC1AD /* NewPostViewController.swift */; };
+		C1A4AF231C86148E000DC1AD /* GeoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF221C86148E000DC1AD /* GeoTableViewCell.swift */; };
+		C1A4AF251C8614C2000DC1AD /* TagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF241C8614C2000DC1AD /* TagsTableViewCell.swift */; };
+		C1A4AF271C861501000DC1AD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF261C861501000DC1AD /* SearchTableViewCell.swift */; };
+		C1A4AF291C86153A000DC1AD /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF281C86153A000DC1AD /* ProfileTableViewCell.swift */; };
+		C1A4AF2B1C86182E000DC1AD /* SearchedTagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF2A1C86182E000DC1AD /* SearchedTagTableViewController.swift */; };
+		C1A4AF2D1C86191E000DC1AD /* SearchedTagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF2C1C86191E000DC1AD /* SearchedTagTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +63,19 @@
 		C167BD6E1C84CB380010A2C2 /* Rant AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rant AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C167BD721C84CB380010A2C2 /* Rant_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rant_AppUITests.swift; sourceTree = "<group>"; };
 		C167BD741C84CB380010A2C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1A4AF141C860A0B000DC1AD /* InitialTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialTabBarController.swift; sourceTree = "<group>"; };
+		C1A4AF161C860F47000DC1AD /* GeoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoTableViewController.swift; sourceTree = "<group>"; };
+		C1A4AF181C860F82000DC1AD /* TagsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
+		C1A4AF1A1C860FCF000DC1AD /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		C1A4AF1C1C860FEE000DC1AD /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		C1A4AF1E1C8612A4000DC1AD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C1A4AF201C8612D0000DC1AD /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		C1A4AF221C86148E000DC1AD /* GeoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoTableViewCell.swift; sourceTree = "<group>"; };
+		C1A4AF241C8614C2000DC1AD /* TagsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewCell.swift; sourceTree = "<group>"; };
+		C1A4AF261C861501000DC1AD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		C1A4AF281C86153A000DC1AD /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		C1A4AF2A1C86182E000DC1AD /* SearchedTagTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedTagTableViewController.swift; sourceTree = "<group>"; };
+		C1A4AF2C1C86191E000DC1AD /* SearchedTagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedTagTableViewCell.swift; sourceTree = "<group>"; };
 		CD7CDC2DDA2E3F5F8D329C5D /* Pods_Rant_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rant_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,6 +141,19 @@
 				C167BD521C84CB380010A2C2 /* AppDelegate.swift */,
 				C167BD541C84CB380010A2C2 /* ViewController.swift */,
 				C167BD561C84CB380010A2C2 /* Main.storyboard */,
+				C1A4AF2C1C86191E000DC1AD /* SearchedTagTableViewCell.swift */,
+				C1A4AF2A1C86182E000DC1AD /* SearchedTagTableViewController.swift */,
+				C1A4AF281C86153A000DC1AD /* ProfileTableViewCell.swift */,
+				C1A4AF261C861501000DC1AD /* SearchTableViewCell.swift */,
+				C1A4AF241C8614C2000DC1AD /* TagsTableViewCell.swift */,
+				C1A4AF221C86148E000DC1AD /* GeoTableViewCell.swift */,
+				C1A4AF201C8612D0000DC1AD /* NewPostViewController.swift */,
+				C1A4AF1E1C8612A4000DC1AD /* SettingsViewController.swift */,
+				C1A4AF1C1C860FEE000DC1AD /* ProfileTableViewController.swift */,
+				C1A4AF1A1C860FCF000DC1AD /* SearchTableViewController.swift */,
+				C1A4AF181C860F82000DC1AD /* TagsTableViewController.swift */,
+				C1A4AF161C860F47000DC1AD /* GeoTableViewController.swift */,
+				C1A4AF141C860A0B000DC1AD /* InitialTabBarController.swift */,
 				C167BD591C84CB380010A2C2 /* Assets.xcassets */,
 				C167BD5B1C84CB380010A2C2 /* LaunchScreen.storyboard */,
 				C167BD5E1C84CB380010A2C2 /* Info.plist */,
@@ -334,8 +373,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1A4AF1D1C860FEE000DC1AD /* ProfileTableViewController.swift in Sources */,
+				C1A4AF2D1C86191E000DC1AD /* SearchedTagTableViewCell.swift in Sources */,
+				C1A4AF2B1C86182E000DC1AD /* SearchedTagTableViewController.swift in Sources */,
+				C1A4AF191C860F82000DC1AD /* TagsTableViewController.swift in Sources */,
+				C1A4AF251C8614C2000DC1AD /* TagsTableViewCell.swift in Sources */,
+				C1A4AF1B1C860FCF000DC1AD /* SearchTableViewController.swift in Sources */,
 				C167BD551C84CB380010A2C2 /* ViewController.swift in Sources */,
+				C1A4AF171C860F47000DC1AD /* GeoTableViewController.swift in Sources */,
+				C1A4AF211C8612D0000DC1AD /* NewPostViewController.swift in Sources */,
+				C1A4AF151C860A0B000DC1AD /* InitialTabBarController.swift in Sources */,
+				C1A4AF231C86148E000DC1AD /* GeoTableViewCell.swift in Sources */,
+				C1A4AF291C86153A000DC1AD /* ProfileTableViewCell.swift in Sources */,
+				C1A4AF271C861501000DC1AD /* SearchTableViewCell.swift in Sources */,
 				C167BD531C84CB380010A2C2 /* AppDelegate.swift in Sources */,
+				C1A4AF1F1C8612A4000DC1AD /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
