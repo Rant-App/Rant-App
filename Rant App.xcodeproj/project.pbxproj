@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FEA0FD21C86604000139DEF /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FD11C86604000139DEF /* PostTableViewCell.swift */; };
+		4FEA0FD41C8702EE00139DEF /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FD31C8702EE00139DEF /* Posts.swift */; };
+		4FEA0FD61C87030000139DEF /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FD51C87030000139DEF /* Tags.swift */; };
+		4FEA0FD81C87030F00139DEF /* SavedTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FD71C87030F00139DEF /* SavedTags.swift */; };
+		4FEA0FDA1C87047700139DEF /* FavoriteTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FD91C87047700139DEF /* FavoriteTags.swift */; };
+		4FEA0FDC1C87086000139DEF /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FDB1C87086000139DEF /* Comments.swift */; };
+		4FEA0FDE1C870F7300139DEF /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FDD1C870F7300139DEF /* CommentsTableViewController.swift */; };
+		4FEA0FE01C870FAB00139DEF /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FDF1C870FAB00139DEF /* CommentsTableViewCell.swift */; };
 		5BB1EF3709CC29A4C9F41060 /* Pods_Rant_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7CDC2DDA2E3F5F8D329C5D /* Pods_Rant_App.framework */; };
 		C167BD531C84CB380010A2C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C167BD521C84CB380010A2C2 /* AppDelegate.swift */; };
 		C167BD551C84CB380010A2C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C167BD541C84CB380010A2C2 /* ViewController.swift */; };
@@ -22,12 +30,8 @@
 		C1A4AF1D1C860FEE000DC1AD /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF1C1C860FEE000DC1AD /* ProfileTableViewController.swift */; };
 		C1A4AF1F1C8612A4000DC1AD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF1E1C8612A4000DC1AD /* SettingsViewController.swift */; };
 		C1A4AF211C8612D0000DC1AD /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF201C8612D0000DC1AD /* NewPostViewController.swift */; };
-		C1A4AF231C86148E000DC1AD /* GeoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF221C86148E000DC1AD /* GeoTableViewCell.swift */; };
-		C1A4AF251C8614C2000DC1AD /* TagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF241C8614C2000DC1AD /* TagsTableViewCell.swift */; };
 		C1A4AF271C861501000DC1AD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF261C861501000DC1AD /* SearchTableViewCell.swift */; };
-		C1A4AF291C86153A000DC1AD /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF281C86153A000DC1AD /* ProfileTableViewCell.swift */; };
 		C1A4AF2B1C86182E000DC1AD /* SearchedTagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF2A1C86182E000DC1AD /* SearchedTagTableViewController.swift */; };
-		C1A4AF2D1C86191E000DC1AD /* SearchedTagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4AF2C1C86191E000DC1AD /* SearchedTagTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4FEA0FD11C86604000139DEF /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		4FEA0FD31C8702EE00139DEF /* Posts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
+		4FEA0FD51C87030000139DEF /* Tags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		4FEA0FD71C87030F00139DEF /* SavedTags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedTags.swift; sourceTree = "<group>"; };
+		4FEA0FD91C87047700139DEF /* FavoriteTags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTags.swift; sourceTree = "<group>"; };
+		4FEA0FDB1C87086000139DEF /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
+		4FEA0FDD1C870F7300139DEF /* CommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
+		4FEA0FDF1C870FAB00139DEF /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		58E2553E62999CC39120390C /* Pods-Rant App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rant App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rant App/Pods-Rant App.release.xcconfig"; sourceTree = "<group>"; };
 		85BD28973958542F5D704F9D /* Pods-Rant App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rant App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rant App/Pods-Rant App.debug.xcconfig"; sourceTree = "<group>"; };
 		C167BD4F1C84CB380010A2C2 /* Rant App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rant App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,12 +82,8 @@
 		C1A4AF1C1C860FEE000DC1AD /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		C1A4AF1E1C8612A4000DC1AD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C1A4AF201C8612D0000DC1AD /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
-		C1A4AF221C86148E000DC1AD /* GeoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoTableViewCell.swift; sourceTree = "<group>"; };
-		C1A4AF241C8614C2000DC1AD /* TagsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewCell.swift; sourceTree = "<group>"; };
 		C1A4AF261C861501000DC1AD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
-		C1A4AF281C86153A000DC1AD /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		C1A4AF2A1C86182E000DC1AD /* SearchedTagTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedTagTableViewController.swift; sourceTree = "<group>"; };
-		C1A4AF2C1C86191E000DC1AD /* SearchedTagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedTagTableViewCell.swift; sourceTree = "<group>"; };
 		CD7CDC2DDA2E3F5F8D329C5D /* Pods_Rant_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rant_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,12 +149,16 @@
 				C167BD521C84CB380010A2C2 /* AppDelegate.swift */,
 				C167BD541C84CB380010A2C2 /* ViewController.swift */,
 				C167BD561C84CB380010A2C2 /* Main.storyboard */,
-				C1A4AF2C1C86191E000DC1AD /* SearchedTagTableViewCell.swift */,
+				4FEA0FDD1C870F7300139DEF /* CommentsTableViewController.swift */,
+				4FEA0FDF1C870FAB00139DEF /* CommentsTableViewCell.swift */,
+				4FEA0FDB1C87086000139DEF /* Comments.swift */,
+				4FEA0FD11C86604000139DEF /* PostTableViewCell.swift */,
+				4FEA0FD31C8702EE00139DEF /* Posts.swift */,
+				4FEA0FD51C87030000139DEF /* Tags.swift */,
+				4FEA0FD91C87047700139DEF /* FavoriteTags.swift */,
+				4FEA0FD71C87030F00139DEF /* SavedTags.swift */,
 				C1A4AF2A1C86182E000DC1AD /* SearchedTagTableViewController.swift */,
-				C1A4AF281C86153A000DC1AD /* ProfileTableViewCell.swift */,
 				C1A4AF261C861501000DC1AD /* SearchTableViewCell.swift */,
-				C1A4AF241C8614C2000DC1AD /* TagsTableViewCell.swift */,
-				C1A4AF221C86148E000DC1AD /* GeoTableViewCell.swift */,
 				C1A4AF201C8612D0000DC1AD /* NewPostViewController.swift */,
 				C1A4AF1E1C8612A4000DC1AD /* SettingsViewController.swift */,
 				C1A4AF1C1C860FEE000DC1AD /* ProfileTableViewController.swift */,
@@ -374,20 +386,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1A4AF1D1C860FEE000DC1AD /* ProfileTableViewController.swift in Sources */,
-				C1A4AF2D1C86191E000DC1AD /* SearchedTagTableViewCell.swift in Sources */,
 				C1A4AF2B1C86182E000DC1AD /* SearchedTagTableViewController.swift in Sources */,
+				4FEA0FD61C87030000139DEF /* Tags.swift in Sources */,
 				C1A4AF191C860F82000DC1AD /* TagsTableViewController.swift in Sources */,
-				C1A4AF251C8614C2000DC1AD /* TagsTableViewCell.swift in Sources */,
 				C1A4AF1B1C860FCF000DC1AD /* SearchTableViewController.swift in Sources */,
 				C167BD551C84CB380010A2C2 /* ViewController.swift in Sources */,
+				4FEA0FD41C8702EE00139DEF /* Posts.swift in Sources */,
 				C1A4AF171C860F47000DC1AD /* GeoTableViewController.swift in Sources */,
+				4FEA0FDC1C87086000139DEF /* Comments.swift in Sources */,
+				4FEA0FE01C870FAB00139DEF /* CommentsTableViewCell.swift in Sources */,
+				4FEA0FD81C87030F00139DEF /* SavedTags.swift in Sources */,
 				C1A4AF211C8612D0000DC1AD /* NewPostViewController.swift in Sources */,
 				C1A4AF151C860A0B000DC1AD /* InitialTabBarController.swift in Sources */,
-				C1A4AF231C86148E000DC1AD /* GeoTableViewCell.swift in Sources */,
-				C1A4AF291C86153A000DC1AD /* ProfileTableViewCell.swift in Sources */,
 				C1A4AF271C861501000DC1AD /* SearchTableViewCell.swift in Sources */,
+				4FEA0FDA1C87047700139DEF /* FavoriteTags.swift in Sources */,
 				C167BD531C84CB380010A2C2 /* AppDelegate.swift in Sources */,
 				C1A4AF1F1C8612A4000DC1AD /* SettingsViewController.swift in Sources */,
+				4FEA0FD21C86604000139DEF /* PostTableViewCell.swift in Sources */,
+				4FEA0FDE1C870F7300139DEF /* CommentsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
