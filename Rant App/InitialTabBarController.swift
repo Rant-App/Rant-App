@@ -6,23 +6,10 @@
 //  Copyright © 2016 Rant-App. All rights reserved.
 //
 
+
 import UIKit
 
 class InitialTabBarController: UITabBarController {
-
-}
-
-//
-//  BackendlessTabBarController.swift
-//  Backendless Test
-//
-//  Created by block7 on 2/9/16.
-//  Copyright © 2016 block7. All rights reserved.
-//
-
-import UIKit
-
-class BackendlessTabBarController: UITabBarController {
     let defaults = NSUserDefaults.standardUserDefaults()
     
     let identification = UIDevice.currentDevice().identifierForVendor!.UUIDString
@@ -32,6 +19,7 @@ class BackendlessTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // Ask for Authorisation from the User.
         
         userRegistrationOrLogin()
     }

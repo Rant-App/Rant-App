@@ -10,7 +10,7 @@ import UIKit
 
 class TagsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PostTableViewCell", forIndexPath: indexPath) as! PostTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TagsTableViewCell", forIndexPath: indexPath) as! PostTableViewCell
         cell.PostTextLabel.text = "test"
         cell.TimeStampLabel.text = "1"
         cell.PostTextLabel.textColor = UIColor.blackColor()

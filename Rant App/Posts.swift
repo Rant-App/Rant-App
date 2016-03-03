@@ -7,10 +7,11 @@
 //
 
 class Posts: NSObject {
-    var geo : String?
+    var coordinates : GeoPoint?
     var likes : String?
-    var time : String?
     var post : String?
     var objectId : String?
     var id : String?
+    var created: NSDate?
+    var color : String?
 }
