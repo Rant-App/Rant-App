@@ -7,7 +7,7 @@
 //
 
 class Posts: NSObject {
-    var coordinates : GeoPoint?
+    var coordinates : CLLocationCoordinate2D?
     var likes : String?
     var post : String?
     var objectId : String?

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DXw-hb-CwU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DXw-hb-CwU">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--InitialTabBarController-->
@@ -56,7 +56,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsTableViewCell" id="RGp-fC-fdN" customClass="CommentsTableViewCell" customModule="Rant_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RGp-fC-fdN" id="h9M-Pi-WJz">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -69,8 +69,7 @@
                             <outlet property="delegate" destination="1M5-3o-ev0" id="tJh-sZ-fvD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="gmR-lU-W9q"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" title="Comments" id="gmR-lU-W9q"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vor-dh-PVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -160,8 +159,7 @@
                             <outlet property="delegate" destination="ZtZ-br-ApA" id="pRy-0c-IW7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="0Ad-ZO-7rd">
-                        <nil key="title"/>
+                    <navigationItem key="navigationItem" title="Nearby Rants" id="0Ad-ZO-7rd">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="add" id="Y4g-As-ll1">
                             <connections>
                                 <segue destination="bky-UW-5Kg" kind="show" id="e09-JI-tdM"/>
@@ -197,34 +195,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" text="This is an example post" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9CJ-wm-AhN">
-                                <rect key="frame" x="20" y="78" width="335" height="266"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" text="This is an example rant" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9CJ-wm-AhN">
+                                <rect key="frame" x="20" y="78" width="335" height="294"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eme-OH-Fb2">
-                                <rect key="frame" x="20" y="390" width="105" height="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post Color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eme-OH-Fb2">
+                                <rect key="frame" x="135" y="448" width="105" height="43"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tags" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nwx-kR-ZDm">
-                                <rect key="frame" x="20" y="352" width="335" height="30"/>
+                                <rect key="frame" x="20" y="392" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f1O-ri-S5h">
-                                <rect key="frame" x="20" y="441" width="200" height="61"/>
+                                <rect key="frame" x="87" y="499" width="200" height="61"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU6-ny-npE">
+                                <rect key="frame" x="172" y="588" width="31" height="30"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="PostButtonClicked:" destination="bky-UW-5Kg" eventType="touchUpInside" id="iIi-hp-b7S"/>
+                                    <segue destination="ZtZ-br-ApA" kind="show" id="11U-AD-oNX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="ColorPickerView" destination="f1O-ri-S5h" id="kOR-Ja-xyr"/>
+                        <outlet property="PostButton" destination="eU6-ny-npE" id="OJV-ZD-Adh"/>
+                        <outlet property="RantTextView" destination="9CJ-wm-AhN" id="NDE-8K-xpS"/>
+                        <outlet property="TagTextField" destination="nwx-kR-ZDm" id="R5B-fm-WZQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wb-IY-9Tl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3806.5" y="-1354.5"/>
+            <point key="canvasLocation" x="3806.5" y="-1462.5"/>
         </scene>
         <!--SearchNavigationController-->
         <scene sceneID="NLT-w8-cQi">
@@ -281,7 +293,7 @@
                             <outlet property="delegate" destination="ZmN-61-PjH" id="NTv-lD-SnO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="F8Q-J5-aDJ">
+                    <navigationItem key="navigationItem" title="Search" id="F8Q-J5-aDJ">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="jwm-NW-1th">
                             <connections>
                                 <segue destination="bky-UW-5Kg" kind="show" id="SXK-D0-jGE"/>
@@ -326,7 +338,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="kVw-yz-6bY">
+                    <navigationItem key="navigationItem" title="Rants by Tag" id="kVw-yz-6bY">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="Dco-wk-Lde">
                             <connections>
                                 <segue destination="bky-UW-5Kg" kind="show" id="2V2-Q3-Ex8"/>
@@ -345,7 +357,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6EN-ce-66q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2002.5" y="352.5"/>
+            <point key="canvasLocation" x="2006.5" y="361.5"/>
         </scene>
         <!--SearchedTagNavigationController-->
         <scene sceneID="pWK-2x-Knv">
@@ -439,7 +451,7 @@
                             <outlet property="delegate" destination="wbT-IS-KB6" id="pdp-vx-LIV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="keA-Fc-a73">
+                    <navigationItem key="navigationItem" title="My Rants" id="keA-Fc-a73">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="2dP-G1-P3a">
                             <connections>
                                 <segue destination="bky-UW-5Kg" kind="show" id="fZa-eN-Ldn"/>
@@ -538,7 +550,7 @@
                             <outlet property="delegate" destination="LF2-OW-uhI" id="tjl-n2-zN8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="htI-h3-kbq">
+                    <navigationItem key="navigationItem" title="My Tags" id="htI-h3-kbq">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="gmc-8g-7yc">
                             <connections>
                                 <segue destination="bky-UW-5Kg" kind="show" id="rfK-QH-ESo"/>
@@ -582,7 +594,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cYg-dp-76D"/>
-        <segue reference="e09-JI-tdM"/>
+        <segue reference="2V2-Q3-Ex8"/>
+        <segue reference="EkB-QQ-H1g"/>
+        <segue reference="11U-AD-oNX"/>
     </inferredMetricsTieBreakers>
 </document>
