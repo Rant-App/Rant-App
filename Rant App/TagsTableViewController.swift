@@ -25,7 +25,7 @@ class TagsTableViewController: UITableViewController {
     var tagsInCell = ""
     
     var time = ""
-    var test: [AnyObject]!
+    var test: Int!
     var count: String = ""
     var numberOfComments: String = ""
     var postid = ""
@@ -43,7 +43,11 @@ class TagsTableViewController: UITableViewController {
     
     var colorArray: [UIColor] = []
     var likesArray: [String] = []
-    var postidArray: [String] = []
+    
+    var favTagsArray: [String] = []
+    var postIdArray: [String] = []
+    
+    var timeArray: [String] = []
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TagsTableViewCell", forIndexPath: indexPath) as! PostTableViewCell
@@ -55,10 +59,8 @@ class TagsTableViewController: UITableViewController {
         
         let currentLikes = likesArray[indexPath.row]
         
-        let currentPostid = postidArray[indexPath.row]
-        
         cell.PostTextLabel.text = postArray[indexPath.row]
-        cell.TimeStampLabel.text = time
+        cell.TimeStampLabel.text = timeArray[indexPath.row]
         cell.PostTextLabel.textColor = textColor
         cell.TagsLabel.text = tagsString
         cell.ReplyButton.setTitle("\(num) replies", forState: .Normal)
@@ -70,7 +72,7 @@ class TagsTableViewController: UITableViewController {
         return 1
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return test
     }
     override func viewDidLoad() {
         loadData()
@@ -92,14 +94,100 @@ class TagsTableViewController: UITableViewController {
         let dataQuery = BackendlessDataQuery()
         dataQuery.whereClause = whereClause
         
-        let posts = self.backendless.persistenceService.of(FavoriteTags.ofClass()).find(dataQuery)
+        let tags = self.backendless.persistenceService.of(FavoriteTags.ofClass()).find(dataQuery)
         
-        let currentPage = posts.getCurrentPage()
-        
-        test = posts.data
+        let currentPage = tags.getCurrentPage()
         
         for tag in currentPage as! [FavoriteTags] {
+            let tagText = tag.tag!
+            favTagsArray.append(tagText)
+        }
+        
+        for x in favTagsArray{
+            let wc = "tag = '\(x)'"
+            let dq = BackendlessDataQuery()
+            dq.whereClause = wc
             
+            let postids = self.backendless.persistenceService.of(Tags.ofClass()).find(dq)
+            
+            let curPage = postids.getCurrentPage()
+            
+            for postid in curPage as! [Tags] {
+                let postId = postid.postid!
+                postIdArray.append(postId)
+            }
+            
+            postIdArray = Array(Set(postIdArray))
+            
+            test = postIdArray.count
+            
+            for pi in postIdArray{
+                let w = "objectId = '\(pi)'"
+                let d = BackendlessDataQuery()
+                d.whereClause = w
+                let post = self.backendless.persistenceService.of(Posts.ofClass()).find(d)
+                let cp = post.getCurrentPage()
+                
+                
+                for post in cp as! [Posts] {
+                    let postText = post.post!
+                    count = post.likes!
+                    time = String(post.created)
+                    timeArray.append(time)
+                    likesArray.append(count)
+                    postArray.append(postText)
+                    color = post.color!
+                    
+                    postid = post.objectId!
+                    
+                    let clauseTags = "postid = '\(postid)'"
+                    let queryTags = BackendlessDataQuery()
+                    queryTags.whereClause = clauseTags
+                    let tagsForPosts = self.backendless.persistenceService.of(Tags.ofClass()).find(queryTags)
+                    let tagsCurrentPage = tagsForPosts.getCurrentPage()
+                    
+                    var row = [String]()
+                    
+                    for y in tagsCurrentPage as! [Tags]{
+                        let t = y.tag!
+                        row.append(t)
+                    }
+                    tagsArray.append(row)
+                    
+                    let clauseComments = "postid = '\(postid)'"
+                    let queryComments = BackendlessDataQuery()
+                    queryComments.whereClause = clauseComments
+                    let comments = self.backendless.persistenceService.of(Comments.ofClass()).find(queryComments)
+                    numberOfComments = String(comments.data.count)
+                    
+                    var rowC = [String]()
+                    rowC.append(numberOfComments)
+                    numCommentsArray.append(rowC)
+                    
+                    
+                    if color == "red"{
+                        uicolor = red
+                    } else if color == "blue"{
+                        uicolor = blue
+                    } else if color == "brown"{
+                        uicolor = brown
+                    } else if color == "black"{
+                        uicolor = black
+                    } else if color == "purple"{
+                        uicolor = purple
+                    } else if color == "green"{
+                        uicolor = green
+                    } else if color == "yellow"{
+                        uicolor = yellow
+                    } else if color == "orange"{
+                        uicolor = orange
+                    }
+                    
+                    colorArray.append(uicolor)
+                    
+                    
+                }
+            }
         }
 
         

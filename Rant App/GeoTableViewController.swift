@@ -49,6 +49,7 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
     var colorArray: [UIColor] = []
     var likesArray: [String] = []
     var postidArray: [String] = []
+    var timeArray: [String] = []
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostTableViewCell", forIndexPath: indexPath) as! PostTableViewCell
@@ -63,8 +64,10 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
         
         let currentPostid = postidArray[indexPath.row]
         
+        let postTime = timeArray[indexPath.row]
+        
         cell.PostTextLabel.text = postArray[indexPath.row]
-        cell.TimeStampLabel.text = time
+        cell.TimeStampLabel.text = postTime
         cell.PostTextLabel.textColor = textColor
         cell.TagsLabel.text = tagsString
         cell.ReplyButton.setTitle("\(num) replies", forState: .Normal)
@@ -125,6 +128,7 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
         for post in currentPage as! [Posts] {
             let postText = post.post
             time = String(post.created)
+            timeArray.append(time)
             count = post.likes!
             likesArray.append(count)
             
