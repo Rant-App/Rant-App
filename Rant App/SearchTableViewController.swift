@@ -11,8 +11,19 @@ import UIKit
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
     var searchController: UISearchController!
     
+    let backendless = Backendless.sharedInstance()
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    var id = UIDevice.currentDevice().identifierForVendor!.UUIDString
+    
+    var savedTags: [String] = []
+    var filteredSavedTags: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSearchController()
+        loadSavedTags()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -24,13 +35,21 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if searchController.active && searchController.searchBar.text != "" {
+            return filteredSavedTags.count
+        }
+        return savedTags.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        cell.textLabel!.text = "hi"
-        cell.detailTextLabel!.text = "hi"
+        var tag: String!
+        if searchController.active && searchController.searchBar.text != "" {
+            tag = filteredSavedTags[indexPath.row]
+        } else {
+            tag = savedTags[indexPath.row]
+        }
+        cell.textLabel?.text = tag
         return cell
     }
     
@@ -47,14 +66,44 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search here..."
-        searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()
-        
-        // Place the search bar view to the tableview headerview.
-        tblSearchResults.tableHeaderView = searchController.searchBar
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController){
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        let whereclause = "tag LIKE '\(searchText.lowercaseString)%'"
+        let query = BackendlessDataQuery()
+        query.whereClause = whereclause
+        let filteredtags = self.backendless.persistenceService.of(SavedTags.ofClass()).find(query)
+        let cp = filteredtags.getCurrentPage()
+        for tag in cp as! [SavedTags] {
+            let t = tag.tag!
+            filteredSavedTags.append(t)
+            return t
+        }
+        
+        filteredSavedTags = savedTags.filter({
+            
+        })
+        
+        tableView.reloadData()
+    }
+    func loadSavedTags(){
+        let savedtags = self.backendless.persistenceService.of(SavedTags.ofClass()).find()
+        
+        let currentPage = savedtags.getCurrentPage()
+        
+        for tag in currentPage as! [SavedTags] {
+            let tagText = tag.tag!
+            savedTags.append(tagText)
+        }
+
         
     }
 }
