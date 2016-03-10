@@ -19,6 +19,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
     
     var savedTags: [String] = []
     var filteredSavedTags: [String] = []
+    var favoriteTags: [String] = []
+    var stcheck: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +33,32 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
     
     // MARK: - Table View
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        var checkFavTags: Int!
+        var checkSavTags: Int!
+        var returnCount: Int!
+        if searchController.active && searchController.searchBar.text != ""{
+            loadFavoriteTags(searchController.searchBar.text!)
+            checkFavTags = favoriteTags.count
+            favoriteTags.removeAll()
+            
+            loadTagsBySearch(searchController.searchBar.text!)
+            checkSavTags = stcheck.count
+            stcheck.removeAll()
+            
+            if checkSavTags == 0{
+                returnCount = 3
+            } else if checkSavTags != 0 && checkFavTags == 0{
+                returnCount = 2
+            }
+            else{
+                returnCount = 1
+            }
+        }
+        else{
+            returnCount = 1
+        }
+        
+        return returnCount
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,12 +112,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         for tag in cp as! [SavedTags] {
             let t = tag.tag!
             filteredSavedTags.append(t)
-            return t
         }
-        
-        filteredSavedTags = savedTags.filter({
-            
-        })
         
         tableView.reloadData()
     }
@@ -105,5 +127,29 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         }
 
         
+    }
+    func loadFavoriteTags(input: String){
+        let wc = "tag LIKE '\(input)%'"
+        let dq = BackendlessDataQuery()
+        dq.whereClause = wc
+        let tags = self.backendless.persistenceService.of(FavoriteTags.ofClass()).find(dq)
+        let cpage = tags.getCurrentPage()
+        
+        for tag in cpage as! [FavoriteTags]{
+            let ft = tag.tag!
+            favoriteTags.append(ft)
+            
+        }
+    }
+    func loadTagsBySearch(input: String){
+        let d = BackendlessDataQuery()
+        d.whereClause = "tag LIKE '\(input)%'"
+        let ts = self.backendless.persistenceService.of(SavedTags.ofClass()).find(d)
+        let cps = ts.getCurrentPage()
+        
+        for tag in cps as! [SavedTags]{
+            let tt = tag.tag!
+            stcheck.append(tt)
+        }
     }
 }
