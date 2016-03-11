@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DXw-hb-CwU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DXw-hb-CwU">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--InitialTabBarController-->
@@ -280,7 +280,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddTag" rowHeight="40" id="ZQi-Yw-5mf" customClass="SearchTableViewCell" customModule="Rant_App" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddTag" rowHeight="40" id="ZQi-Yw-5mf" customClass="SearchAddCells" customModule="Rant_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZQi-Yw-5mf" id="zmT-Gi-sNh">
@@ -299,8 +299,12 @@
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="AddBtn" destination="FZP-Od-MF7" id="mPO-vb-RrR"/>
+                                    <outlet property="TextLabel" destination="hjw-h8-Ihp" id="xSu-NB-f6w"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LikeTag" rowHeight="40" id="vpY-bt-5Jf">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LikeTag" rowHeight="40" id="vpY-bt-5Jf" customClass="SearchAddCells" customModule="Rant_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="112" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vpY-bt-5Jf" id="XQm-Uz-hyg">
@@ -319,8 +323,12 @@
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="AddBtn" destination="uFZ-RK-OEs" id="Wba-Nq-d8n"/>
+                                    <outlet property="TextLabel" destination="ofA-2k-3y9" id="PCu-La-QUJ"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchedTag" rowHeight="60" id="Khd-aO-FPM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchedTag" rowHeight="60" id="Khd-aO-FPM" customClass="SearchTableViewCell" customModule="Rant_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="152" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Khd-aO-FPM" id="LSe-g5-XGr">
@@ -339,6 +347,10 @@
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="tagBtn" destination="q3s-e3-9hn" id="QAg-tr-zWx"/>
+                                    <outlet property="tagLabel" destination="Y0n-HI-yng" id="BCA-nw-cNM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -496,6 +508,14 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ClapImage" destination="iP7-aG-v8w" id="F60-8l-Ron"/>
+                                    <outlet property="CountLabel" destination="xK6-EE-45t" id="8o6-pD-Ljz"/>
+                                    <outlet property="PostTextLabel" destination="qbX-LY-nDx" id="tEs-rF-8ed"/>
+                                    <outlet property="ReplyButton" destination="V4H-JM-Hn7" id="mly-dn-srl"/>
+                                    <outlet property="TagsLabel" destination="kFU-bx-hNA" id="XBY-Ww-9M9"/>
+                                    <outlet property="TimeStampLabel" destination="MGB-sf-lcn" id="Zaj-47-QHV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -595,6 +615,14 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ClapImage" destination="dRx-dX-v0L" id="UvY-gN-9Iz"/>
+                                    <outlet property="CountLabel" destination="D5Z-B2-QXv" id="NPk-ob-BMO"/>
+                                    <outlet property="PostTextLabel" destination="8Dj-Gm-y3w" id="BAK-eI-Xv5"/>
+                                    <outlet property="ReplyButton" destination="vuk-Mi-C2R" id="SB0-MR-Ogs"/>
+                                    <outlet property="TagsLabel" destination="I0t-xM-ZvQ" id="2nS-Mm-Nqa"/>
+                                    <outlet property="TimeStampLabel" destination="Os2-3q-l8C" id="qur-Yf-VcL"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -646,8 +674,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2V2-Q3-Ex8"/>
-        <segue reference="EkB-QQ-H1g"/>
+        <segue reference="C9j-vG-KUR"/>
+        <segue reference="fZa-eN-Ldn"/>
         <segue reference="11U-AD-oNX"/>
     </inferredMetricsTieBreakers>
 </document>

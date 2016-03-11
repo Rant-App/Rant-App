@@ -98,23 +98,24 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         let text = searchController.searchBar.text!
         
         if indexPath.section == 0{
-            let cell = tableView.dequeueReusableCellWithIdentifier("AddTag", forIndexPath: indexPath)
-            cell.textLabel?.text = text
+            let cell = tableView.dequeueReusableCellWithIdentifier("AddTag", forIndexPath: indexPath) as! SearchAddCells
+            cell.TextLabel.text = text
             return cell
             
         } else if indexPath.section == 1{
-            let cell = tableView.dequeueReusableCellWithIdentifier("LikeTag", forIndexPath: indexPath)
-            cell.textLabel?.text = text
+            let cell = tableView.dequeueReusableCellWithIdentifier("LikeTag", forIndexPath: indexPath) as! SearchAddCells
+            cell.TextLabel.text = text
         }
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("SearchedTag", forIndexPath: indexPath) as! SearchTableViewCell
         var tag: String!
         if searchController.active && searchController.searchBar.text != "" {
             tag = filteredSavedTags[indexPath.row]
         } else {
             tag = savedTags[indexPath.row]
         }
-        cell.textLabel?.text = tag
+        cell.tagLabel.text = tag
+        cell.tagBtn.addTarget(self, action: "tagBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         return cell
     }
     
@@ -124,7 +125,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         }
     }
     
-    
+    func tagBtnClicked(sender: UIButton!){
+        
+    }
     func configureSearchController() {
         // Initialize and perform a minimum configuration to the search controller.
         searchController = UISearchController(searchResultsController: nil)

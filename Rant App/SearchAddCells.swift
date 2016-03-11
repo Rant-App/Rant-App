@@ -9,5 +9,21 @@
 import UIKit
 
 class SearchAddCells: UITableViewCell {
+    //MARK: Properties
+    
+    @IBOutlet weak var AddBtn: UIButton!
+    @IBOutlet weak var TextLabel: UILabel!
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
 
 }
