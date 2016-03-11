@@ -62,14 +62,52 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.active && searchController.searchBar.text != "" {
-            return filteredSavedTags.count
+        if numberOfSectionsInTableView(tableView) == 1{
+            if searchController.active && searchController.searchBar.text != "" {
+                return filteredSavedTags.count
+            }
+            return savedTags.count
+        } else if numberOfSectionsInTableView(tableView) == 2{
+            if section == 1{
+                return 1
+            } else{
+                if searchController.active && searchController.searchBar.text != "" {
+                    return filteredSavedTags.count
+                }
+                return savedTags.count
+            }
+        } else{
+            if section == 1{
+                return 1
+            }
+            else if section == 2{
+                return 1
+            }
+            else{
+                if searchController.active && searchController.searchBar.text != "" {
+                    return filteredSavedTags.count
+                }
+                return savedTags.count
+            }
+
         }
-        return savedTags.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        
+        let text = searchController.searchBar.text!
+        
+        if indexPath.section == 0{
+            let cell = tableView.dequeueReusableCellWithIdentifier("AddTag", forIndexPath: indexPath)
+            cell.textLabel?.text = text
+            return cell
+            
+        } else if indexPath.section == 1{
+            let cell = tableView.dequeueReusableCellWithIdentifier("LikeTag", forIndexPath: indexPath)
+            cell.textLabel?.text = text
+        }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("", forIndexPath: indexPath)
         var tag: String!
         if searchController.active && searchController.searchBar.text != "" {
             tag = filteredSavedTags[indexPath.row]

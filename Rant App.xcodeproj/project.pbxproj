@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F5B608D1C92227B00D59FB4 /* SearchAddCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5B608C1C92227A00D59FB4 /* SearchAddCells.swift */; };
 		4FEA0FD21C86604000139DEF /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FD11C86604000139DEF /* PostTableViewCell.swift */; };
 		4FEA0FD41C8702EE00139DEF /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FD31C8702EE00139DEF /* Posts.swift */; };
 		4FEA0FD61C87030000139DEF /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FD51C87030000139DEF /* Tags.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F5B608C1C92227A00D59FB4 /* SearchAddCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddCells.swift; sourceTree = "<group>"; };
 		4FEA0FD11C86604000139DEF /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4FEA0FD31C8702EE00139DEF /* Posts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		4FEA0FD51C87030000139DEF /* Tags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				4FEA0FD71C87030F00139DEF /* SavedTags.swift */,
 				C1A4AF2A1C86182E000DC1AD /* SearchedTagTableViewController.swift */,
 				C1A4AF261C861501000DC1AD /* SearchTableViewCell.swift */,
+				4F5B608C1C92227A00D59FB4 /* SearchAddCells.swift */,
 				C1A4AF201C8612D0000DC1AD /* NewPostViewController.swift */,
 				C1A4AF1E1C8612A4000DC1AD /* SettingsViewController.swift */,
 				C1A4AF1C1C860FEE000DC1AD /* ProfileTableViewController.swift */,
@@ -402,6 +405,7 @@
 				4FEA0FDA1C87047700139DEF /* FavoriteTags.swift in Sources */,
 				C167BD531C84CB380010A2C2 /* AppDelegate.swift in Sources */,
 				C1A4AF1F1C8612A4000DC1AD /* SettingsViewController.swift in Sources */,
+				4F5B608D1C92227B00D59FB4 /* SearchAddCells.swift in Sources */,
 				4FEA0FD21C86604000139DEF /* PostTableViewCell.swift in Sources */,
 				4FEA0FDE1C870F7300139DEF /* CommentsTableViewController.swift in Sources */,
 			);
