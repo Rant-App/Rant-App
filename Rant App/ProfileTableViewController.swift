@@ -74,7 +74,7 @@ class ProfileTableViewController: UITableViewController {
         return 1
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return test.count
     }
     override func viewDidLoad() {
         super.viewDidLoad()

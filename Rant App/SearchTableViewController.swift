@@ -144,19 +144,19 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         cell.tagLabel.text = tag
         cell.tagBtn.indexPath = indexPath.row
         cell.tagBtn.tagText = tag
-        cell.tagBtn.addTarget(self, action: "tagBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         return cell
     }
     
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "" {
+        if segue.identifier == "tagBtnClicked" {
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let tag = savedTags[indexPath.row]
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! SearchedTagTableViewController
+                controller.clickedTag = tag
+                
+            }
         }
-    }
-    
-    func tagBtnClicked(sender: SearchedUIButton){
-        let t = sender.tagText
-        prepareForSegue(<#T##segue: UIStoryboardSegue##UIStoryboardSegue#>, sender: <#T##AnyObject?#>)
     }
     func addBtnClicked(sender: AddUIButton){
         let sec = sender.section!
