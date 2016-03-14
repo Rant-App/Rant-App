@@ -22,6 +22,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
     var favoriteTags: [String] = []
     var stcheck: [String] = []
     
+    var addSavedTagButton: UIButton!
+    var addFavoriteTagButton: UIButton!
+    
+    var numberOfSections: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSearchController()
@@ -57,7 +62,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         else{
             returnCount = 1
         }
-        
         return returnCount
     }
     
@@ -96,17 +100,40 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let text = searchController.searchBar.text!
-        
-        if indexPath.section == 0{
-            let cell = tableView.dequeueReusableCellWithIdentifier("AddTag", forIndexPath: indexPath) as! SearchAddCells
-            cell.TextLabel.text = text
-            return cell
+        if numberOfSectionsInTableView(tableView) == 2{
+            if indexPath.section == 0{
+                let cell = tableView.dequeueReusableCellWithIdentifier("LikeTag", forIndexPath: indexPath) as! SearchAddCells
+                cell.TextLabel.text = text
+                cell.AddBtn.indexPath = indexPath.row
+                cell.AddBtn.section = 1
+                cell.AddBtn.tagText = text
+                cell.AddBtn.addTarget(self, action: "addBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+                addFavoriteTagButton = cell.AddBtn
+                return cell
+            }
             
-        } else if indexPath.section == 1{
-            let cell = tableView.dequeueReusableCellWithIdentifier("LikeTag", forIndexPath: indexPath) as! SearchAddCells
-            cell.TextLabel.text = text
+        } else{
+            if indexPath.section == 0{
+                let cell = tableView.dequeueReusableCellWithIdentifier("AddTag", forIndexPath: indexPath) as! SearchAddCells
+                cell.TextLabel.text = text
+                cell.AddBtn.indexPath = indexPath.row
+                cell.AddBtn.section = 0
+                cell.AddBtn.tagText = text
+                cell.AddBtn.addTarget(self, action: "addBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+                addSavedTagButton = cell.AddBtn
+                return cell
+                
+            } else if indexPath.section == 1{
+                let cell = tableView.dequeueReusableCellWithIdentifier("LikeTag", forIndexPath: indexPath) as! SearchAddCells
+                cell.TextLabel.text = text
+                cell.AddBtn.indexPath = indexPath.row
+                cell.AddBtn.section = 1
+                cell.AddBtn.tagText = text
+                cell.AddBtn.addTarget(self, action: "addBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+                addFavoriteTagButton = cell.AddBtn
+                return cell
+            }
         }
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("SearchedTag", forIndexPath: indexPath) as! SearchTableViewCell
         var tag: String!
         if searchController.active && searchController.searchBar.text != "" {
@@ -115,6 +142,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
             tag = savedTags[indexPath.row]
         }
         cell.tagLabel.text = tag
+        cell.tagBtn.indexPath = indexPath.row
+        cell.tagBtn.tagText = tag
         cell.tagBtn.addTarget(self, action: "tagBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         return cell
     }
@@ -125,7 +154,47 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         }
     }
     
-    func tagBtnClicked(sender: UIButton!){
+    func tagBtnClicked(sender: SearchedUIButton){
+        let t = sender.tagText
+        prepareForSegue(<#T##segue: UIStoryboardSegue##UIStoryboardSegue#>, sender: <#T##AnyObject?#>)
+    }
+    func addBtnClicked(sender: AddUIButton){
+        let sec = sender.section!
+        let tt = sender.tagText!
+        if sec == 0{
+            let savedTags = SavedTags()
+            savedTags.tag = tt
+            let dataStore = backendless.data.of(SavedTags.ofClass())
+            
+            var error: Fault?
+            let result = dataStore.save(savedTags, fault: &error) as? SavedTags
+            if error == nil {
+                print("Post has been saved: \(result!.objectId)")
+            }
+            else {
+                print("Server reported an error: \(error)")
+            }
+            addSavedTagButton.setTitle("Added", forState: .Normal)
+            addSavedTagButton.enabled = false
+
+        } else{
+            let favoriteTags = FavoriteTags()
+            favoriteTags.tag = tt
+            favoriteTags.id = id
+            let store = backendless.data.of(FavoriteTags.ofClass())
+            
+            var error: Fault?
+            let result = store.save(favoriteTags, fault: &error) as? FavoriteTags
+            if error == nil {
+                print("Post has been saved: \(result!.objectId)")
+            }
+            else {
+                print("Server reported an error: \(error)")
+            }
+            addFavoriteTagButton.setTitle("Liked", forState: .Normal)
+            addFavoriteTagButton.enabled = false
+
+        }
         
     }
     func configureSearchController() {

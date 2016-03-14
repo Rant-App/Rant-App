@@ -11,7 +11,7 @@ import UIKit
 class SearchTableViewCell: UITableViewCell {
     //MARK: Properties
     @IBOutlet weak var tagLabel: UILabel!
-    @IBOutlet weak var tagBtn: UIButton!
+    @IBOutlet weak var tagBtn: SearchedUIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4F5B608D1C92227B00D59FB4 /* SearchAddCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5B608C1C92227A00D59FB4 /* SearchAddCells.swift */; };
+		4FA5E5081C94479600D6282D /* AddUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA5E5071C94479600D6282D /* AddUIButton.swift */; };
+		4FA5E50A1C944AB800D6282D /* SearchedUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA5E5091C944AB800D6282D /* SearchedUIButton.swift */; };
 		4FEA0FD21C86604000139DEF /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FD11C86604000139DEF /* PostTableViewCell.swift */; };
 		4FEA0FD41C8702EE00139DEF /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FD31C8702EE00139DEF /* Posts.swift */; };
 		4FEA0FD61C87030000139DEF /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FD51C87030000139DEF /* Tags.swift */; };
@@ -54,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		4F5B608C1C92227A00D59FB4 /* SearchAddCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAddCells.swift; sourceTree = "<group>"; };
+		4FA5E5071C94479600D6282D /* AddUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUIButton.swift; sourceTree = "<group>"; };
+		4FA5E5091C944AB800D6282D /* SearchedUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedUIButton.swift; sourceTree = "<group>"; };
 		4FEA0FD11C86604000139DEF /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4FEA0FD31C8702EE00139DEF /* Posts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		4FEA0FD51C87030000139DEF /* Tags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 				C1A4AF1E1C8612A4000DC1AD /* SettingsViewController.swift */,
 				C1A4AF1C1C860FEE000DC1AD /* ProfileTableViewController.swift */,
 				C1A4AF1A1C860FCF000DC1AD /* SearchTableViewController.swift */,
+				4FA5E5091C944AB800D6282D /* SearchedUIButton.swift */,
+				4FA5E5071C94479600D6282D /* AddUIButton.swift */,
 				C1A4AF181C860F82000DC1AD /* TagsTableViewController.swift */,
 				C1A4AF161C860F47000DC1AD /* GeoTableViewController.swift */,
 				C1A4AF141C860A0B000DC1AD /* InitialTabBarController.swift */,
@@ -398,9 +404,11 @@
 				C1A4AF171C860F47000DC1AD /* GeoTableViewController.swift in Sources */,
 				4FEA0FDC1C87086000139DEF /* Comments.swift in Sources */,
 				4FEA0FE01C870FAB00139DEF /* CommentsTableViewCell.swift in Sources */,
+				4FA5E50A1C944AB800D6282D /* SearchedUIButton.swift in Sources */,
 				4FEA0FD81C87030F00139DEF /* SavedTags.swift in Sources */,
 				C1A4AF211C8612D0000DC1AD /* NewPostViewController.swift in Sources */,
 				C1A4AF151C860A0B000DC1AD /* InitialTabBarController.swift in Sources */,
+				4FA5E5081C94479600D6282D /* AddUIButton.swift in Sources */,
 				C1A4AF271C861501000DC1AD /* SearchTableViewCell.swift in Sources */,
 				4FEA0FDA1C87047700139DEF /* FavoriteTags.swift in Sources */,
 				C167BD531C84CB380010A2C2 /* AppDelegate.swift in Sources */,

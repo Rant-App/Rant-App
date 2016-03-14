@@ -11,7 +11,7 @@ import UIKit
 class SearchAddCells: UITableViewCell {
     //MARK: Properties
     
-    @IBOutlet weak var AddBtn: UIButton!
+    @IBOutlet weak var AddBtn: AddUIButton!
     @IBOutlet weak var TextLabel: UILabel!
     
     
