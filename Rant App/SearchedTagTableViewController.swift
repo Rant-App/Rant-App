@@ -89,6 +89,18 @@ class SearchedTagTableViewController: UITableViewController {
         refreshControl.endRefreshing()
         
     }
+    // MARK: - Segues
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "searched" {
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let pid = postIdArray[indexPath.row]
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! CommentsTableViewController
+                controller.postid = pid
+                
+            }
+        }
+    }
+
     func loadData(){
         let whereClause = "tag = '\(clickedTag)'"
         let query = BackendlessDataQuery()

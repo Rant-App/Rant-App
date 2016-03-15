@@ -114,6 +114,18 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
         latitude = locValue.latitude
         longitude = locValue.longitude
     }
+    // MARK: - Segues
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "geo" {
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let pid = postidArray[indexPath.row]
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! CommentsTableViewController
+                controller.postid = pid
+                
+            }
+        }
+    }
+
     func loadData(){
         let whereClause = "distance( \(latitude), \(longitude), coordinates.latitude, coordinates.longitude ) < mi(10)"
         let dataQuery = BackendlessDataQuery()
