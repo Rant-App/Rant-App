@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentsTableViewController: UITableViewController {
+class CommentsTableViewController: UITableViewController, UITextViewDelegate {
     
     ///ADD ADD COMMENT FUNCTIONALITY
     
@@ -23,6 +23,9 @@ class CommentsTableViewController: UITableViewController {
     var commentsArray: [String] = []
     var likesArray: [String] = []
     var timeArray: [String] = []
+    
+    var commentView: UITextView?
+    var footerView: UIView?
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CommentsTableViewCell", forIndexPath: indexPath) as! CommentsTableViewCell
@@ -39,6 +42,31 @@ class CommentsTableViewController: UITableViewController {
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return commentsArray.count
+    }
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 50.0))
+        footerView?.backgroundColor = UIColor(red: 243.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1)
+        commentView = UITextView(frame: CGRect(x: 10, y: 5, width: tableView.bounds.width - 80 , height: 40))
+        commentView?.backgroundColor = UIColor.whiteColor()
+        commentView?.textContainerInset = UIEdgeInsetsMake(5, 5, 5, 5)
+        commentView?.layer.cornerRadius = 2
+        commentView?.scrollsToTop = true
+        
+        footerView?.addSubview(commentView!)
+        let button = UIButton(frame: CGRect(x: tableView.bounds.width - 65, y: 10, width: 60 , height: 30))
+        button.setTitle("Reply", forState: UIControlState.Normal)
+        button.backgroundColor = UIColor(red: 155.0/255, green: 189.0/255, blue: 113.0/255, alpha: 1)
+        button.layer.cornerRadius = 5
+        button.addTarget(self, action: "commentAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        footerView?.addSubview(button)
+        commentView?.delegate = self
+        return footerView
+    }
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if self.footerView != nil {
+            return self.footerView!.bounds.height
+        }
+        return 50.0
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,5 +102,28 @@ class CommentsTableViewController: UITableViewController {
         }
         
         
+    }
+    func commentAction(sender: UIButton!){
+        let ct = commentView?.text
+        let cl = "0"
+        let comments = Comments()
+        comments.comment = ct
+        comments.likes = cl
+        
+        
+        let dataStore = backendless.data.of(Comments.ofClass())
+        
+        var error: Fault?
+        let result = dataStore.save(comments, fault: &error) as? Comments
+        if error == nil {
+            print("Post has been saved: \(result!.objectId)")
+        }
+        else {
+            print("Server reported an error: \(error)")
+        }
+        
+        self.tableView.reloadData()
+        refreshControl?.endRefreshing()
+
     }
 }

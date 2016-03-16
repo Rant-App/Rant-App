@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DXw-hb-CwU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DXw-hb-CwU">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--InitialTabBarController-->
@@ -101,6 +101,9 @@
                     <navigationItem key="navigationItem" title="Comments" id="gmR-lU-W9q">
                         <barButtonItem key="backBarButtonItem" title="&lt;" id="yRN-go-OeF"/>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Egi-l9-DNd">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vor-dh-PVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -493,6 +496,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="uhJ-41-4UN">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6EN-ce-66q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -755,9 +761,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="2V2-Q3-Ex8"/>
         <segue reference="twq-fg-EaD"/>
-        <segue reference="C9j-vG-KUR"/>
-        <segue reference="fZa-eN-Ldn"/>
+        <segue reference="EkB-QQ-H1g"/>
         <segue reference="11U-AD-oNX"/>
     </inferredMetricsTieBreakers>
 </document>
