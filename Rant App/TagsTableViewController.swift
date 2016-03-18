@@ -41,7 +41,7 @@ class TagsTableViewController: UITableViewController {
     let yellow = UIColor.yellowColor()
     let orange = UIColor.orangeColor()
     
-    var colorArray: [UIColor] = []
+    var colorArray: [UIColor!] = []
     var likesArray: [String] = []
     
     var favTagsArray: [String] = []
@@ -72,7 +72,10 @@ class TagsTableViewController: UITableViewController {
         return 1
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return test
+        if test != nil{
+            return test
+        }
+        return 1
     }
     override func viewDidLoad() {
         loadData()

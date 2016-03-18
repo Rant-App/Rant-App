@@ -52,6 +52,8 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
         commentView?.layer.cornerRadius = 2
         commentView?.scrollsToTop = true
         
+        
+        
         footerView?.addSubview(commentView!)
         let button = UIButton(frame: CGRect(x: tableView.bounds.width - 65, y: 10, width: 60 , height: 30))
         button.setTitle("Reply", forState: UIControlState.Normal)

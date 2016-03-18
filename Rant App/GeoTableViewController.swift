@@ -106,10 +106,8 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
         self.tableView.reloadData()
         refreshControl.endRefreshing()
     }
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = (manager.location?.coordinate)!
         
         latitude = locValue.latitude
         longitude = locValue.longitude
