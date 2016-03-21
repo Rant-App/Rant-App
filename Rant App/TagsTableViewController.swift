@@ -75,7 +75,7 @@ class TagsTableViewController: UITableViewController {
         if test != nil{
             return test
         }
-        return 1
+        return 0
     }
     override func viewDidLoad() {
         loadData()

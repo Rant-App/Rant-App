@@ -26,7 +26,7 @@ class ProfileTableViewController: UITableViewController {
     var tagsInCell = ""
     
     var time = ""
-    var test: [AnyObject]!
+    var test: Int!
     var count: String = ""
     var numberOfComments: String = ""
     var postid = ""
@@ -74,10 +74,10 @@ class ProfileTableViewController: UITableViewController {
         return 1
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if test.count != 0{
-            return test.count
+        if test != 0 {
+            return test
         }
-        return 1
+        return 0
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,6 +114,8 @@ class ProfileTableViewController: UITableViewController {
         
         let posts = self.backendless.persistenceService.of(Posts.ofClass()).find(query)
         
+        test = posts.data.count
+        
         let currentPage = posts.getCurrentPage()
         
         for post in currentPage as! [Posts]{
@@ -127,6 +129,7 @@ class ProfileTableViewController: UITableViewController {
             timeArray.append(time)
             
             postid = post.objectId!
+            postidArray.append(postid)
             
             color = post.color!
             

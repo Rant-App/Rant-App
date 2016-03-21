@@ -10,8 +10,6 @@ import UIKit
 
 class CommentsTableViewController: UITableViewController, UITextViewDelegate {
     
-    ///ADD ADD COMMENT FUNCTIONALITY
-    
     var postid: String!
     
     let backendless = Backendless.sharedInstance()
@@ -74,8 +72,6 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         loadData()
-        
-        self.navigationItem.setHidesBackButton(false, animated: true)
         
         self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
     }

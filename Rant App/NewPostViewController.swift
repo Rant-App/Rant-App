@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class NewPostViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class NewPostViewController: UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
     
     let backendless = Backendless.sharedInstance()
     
@@ -40,16 +40,28 @@ class NewPostViewController: UIViewController, CLLocationManagerDelegate, UIPick
     
     let pickerData = ["black", "red", "purple", "brown", "blue", "green", "yellow", "orange"]
     
-    var color = ""
+    var color = "black"
+    var uicolor: UIColor!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let borderColor: UIColor = UIColor(red: 204.0 / 255.0, green: 204.0 / 255.0, blue: 204.0 / 255.0, alpha: 1.0)
+        RantTextView.layer.borderColor = borderColor.CGColor
+        RantTextView.layer.borderWidth = 1.0
+        RantTextView.layer.cornerRadius = 5.0
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
         self.locationManager.requestAlwaysAuthorization()
+        
+        RantTextView?.delegate = self
+        RantTextView.textColor = UIColor.lightGrayColor()
+        
+        RantTextView.contentInset = UIEdgeInsetsMake(-50.0,0.0,0,0.0)
         
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
@@ -67,10 +79,8 @@ class NewPostViewController: UIViewController, CLLocationManagerDelegate, UIPick
     func dismissKeyboard(){
         view.endEditing(true)
     }
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = (manager.location?.coordinate)!
         
         latitude = locValue.latitude
         longitude = locValue.longitude
@@ -83,12 +93,13 @@ class NewPostViewController: UIViewController, CLLocationManagerDelegate, UIPick
     @IBAction func PostButtonClicked(sender: AnyObject) {
         let postText = RantTextView.text
         let tagText = TagTextField.text
-        let tagArray = tagText!.componentsSeparatedByString(" @")
+        let tagArray = tagText!.componentsSeparatedByString(" ")
         //add tags code, save tags by postid
         let posts = Posts()
         posts.post = postText
         posts.id = id
         posts.likes = "0"
+        posts.color = color
         posts.coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
         
@@ -105,9 +116,11 @@ class NewPostViewController: UIViewController, CLLocationManagerDelegate, UIPick
         }
         
         let tags = Tags()
+        let st = SavedTags()
         for x in tagArray{
             tags.postid = postid
             tags.tag = x
+            st.tag = x
             let storeTags = backendless.data.of(Tags.ofClass())
             
             var err: Fault?
@@ -117,6 +130,16 @@ class NewPostViewController: UIViewController, CLLocationManagerDelegate, UIPick
             }
             else {
                 print("server reported an error: \(err)")
+            }
+            
+            let saveTags = backendless.data.of(SavedTags.ofClass())
+            var error: Fault?
+            let isDone = saveTags.save(st, fault: &error) as? SavedTags
+            if error == nil{
+                print("Tag saved: \(isDone!.objectId)")
+            }
+            else{
+                print("Error: \(error)")
             }
         }
 
@@ -136,6 +159,31 @@ class NewPostViewController: UIViewController, CLLocationManagerDelegate, UIPick
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         color = pickerData[row]
+        if color == "red"{
+            uicolor = red
+        } else if color == "blue"{
+            uicolor = blue
+        } else if color == "brown"{
+            uicolor = brown
+        } else if color == "black"{
+            uicolor = black
+        } else if color == "purple"{
+            uicolor = purple
+        } else if color == "green"{
+            uicolor = green
+        } else if color == "yellow"{
+            uicolor = yellow
+        } else if color == "orange"{
+            uicolor = orange
+        }
+        RantTextView.textColor = uicolor
+
+    }
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.textColor == UIColor.lightGrayColor(){
+            textView.text = nil
+            textView.textColor = UIColor.blackColor()
+        }
     }
 
 }
