@@ -100,7 +100,9 @@ class NewPostViewController: UIViewController, CLLocationManagerDelegate, UIPick
         posts.id = id
         posts.likes = "0"
         posts.color = color
-        posts.coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        let geoPoint = GeoPoint.geoPoint(GEO_POINT(latitude: latitude, longitude: longitude)) as! GeoPoint
+        posts.coordinates = geoPoint
         
         
         let dataStore = backendless.data.of(Posts.ofClass())
