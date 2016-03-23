@@ -56,9 +56,8 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
         
         let num = String(numCommentsArray[indexPath.row].count)
         let textColor = colorArray[indexPath.row]
-        let currentTags = tagsArray[indexPath.row]
-        
-        let tagsString = currentTags.joinWithSeparator(", ")
+        tagsArray.removeAtIndex(0)
+        let currentTags = tagsArray[indexPath.row].joinWithSeparator(", ")
         
         let currentLikes = likesArray[indexPath.row]
         
@@ -69,7 +68,7 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
         cell.PostTextLabel.text = postArray[indexPath.row]
         cell.TimeStampLabel.text = postTime
         cell.PostTextLabel.textColor = textColor
-        cell.TagsLabel.text = tagsString
+        cell.TagsLabel.text = currentTags
         cell.ReplyButton.setTitle("\(num) replies", forState: .Normal)
         cell.CountLabel.text = currentLikes
         
@@ -137,6 +136,7 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
         
         for post in currentPage as! [Posts] {
             let postText = post.post
+            let df = NSDateFormatter()
             time = String(post.created)
             timeArray.append(time)
             count = post.likes!

@@ -11,7 +11,7 @@ class Posts: NSObject {
     var post : String?
     var objectId : String?
     var id : String?
-    var created: NSDate?
+    var created: NSDate!
     var color : String?
     var coordinates: GeoPoint!
 }

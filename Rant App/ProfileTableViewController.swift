@@ -52,9 +52,8 @@ class ProfileTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("ProfileTableViewCell", forIndexPath: indexPath) as! PostTableViewCell
         let num = String(numCommentsArray[indexPath.row].count)
         let textColor = colorArray[indexPath.row]
-        let currentTags = tagsArray[indexPath.row]
-        
-        let tagsString = currentTags.joinWithSeparator(", ")
+        tagsArray.removeAtIndex(0)
+        let currentTags = tagsArray[indexPath.row].joinWithSeparator(", ")
         
         let currentLikes = likesArray[indexPath.row]
         
@@ -63,7 +62,8 @@ class ProfileTableViewController: UITableViewController {
         cell.PostTextLabel.text = postArray[indexPath.row]
         cell.TimeStampLabel.text = postTime
         cell.PostTextLabel.textColor = textColor
-        cell.TagsLabel.text = tagsString
+        cell.TagsLabel.text = currentTags
+        print(cell.TagsLabel.text)
         cell.ReplyButton.setTitle("\(num) replies", forState: .Normal)
         cell.CountLabel.text = currentLikes
 
@@ -144,8 +144,10 @@ class ProfileTableViewController: UITableViewController {
             for tag in tagsCurrentPage as! [Tags]{
                 let t = tag.tag!
                 row.append(t)
+                print(t)
             }
             tagsArray.append(row)
+            print(tagsArray[1].joinWithSeparator(", "))
             
             let clauseComments = "postid = '\(postid)'"
             let queryComments = BackendlessDataQuery()

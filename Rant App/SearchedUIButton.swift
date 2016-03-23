@@ -9,6 +9,5 @@
 import UIKit
 
 class SearchedUIButton: UIButton{
-    var indexPath: Int?
     var tagText: String?
 }

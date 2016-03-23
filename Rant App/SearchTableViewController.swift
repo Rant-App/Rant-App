@@ -60,13 +60,16 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
             }
         }
         else{
-            returnCount = 1
+            returnCount = 0
         }
         return returnCount
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if numberOfSectionsInTableView(tableView) == 1{
+        if searchController.searchBar.text == ""{
+            return 0
+        }
+        else if numberOfSectionsInTableView(tableView) == 1{
             if searchController.active && searchController.searchBar.text != "" {
                 return filteredSavedTags.count
             }
@@ -142,7 +145,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
             tag = savedTags[indexPath.row]
         }
         cell.tagLabel.text = tag
-        cell.tagBtn.indexPath = indexPath.row
         cell.tagBtn.tagText = tag
         return cell
     }

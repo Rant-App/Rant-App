@@ -120,6 +120,7 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
             print("Server reported an error: \(error)")
         }
         
+        loadData()
         self.tableView.reloadData()
         refreshControl?.endRefreshing()
 
