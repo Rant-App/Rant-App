@@ -25,6 +25,10 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
     var commentView: UITextView?
     var footerView: UIView?
     
+    var timeSinceDate: Int!
+    var StringTimeSinceDate: String!
+
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CommentsTableViewCell", forIndexPath: indexPath) as! CommentsTableViewCell
         let commentText = commentsArray[indexPath.row]
@@ -92,7 +96,26 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
         let currentPage = comments.getCurrentPage()
         for comment in currentPage as! [Comments]{
             let comText = comment.comment!
-            let comTime = String(comment.created)
+            let df = NSDate()
+            let created = comment.created
+            let interval = df.timeIntervalSinceDate(created)
+            if interval < 60.0 * 60.0{
+                timeSinceDate = Int(interval / (60.0))
+                StringTimeSinceDate = "\(timeSinceDate) minutes ago"
+            }
+            else if interval < 24.0 * 60 * 60{
+                timeSinceDate = Int(interval / (60.0 * 60.0))
+                StringTimeSinceDate = "\(timeSinceDate) hours ago"
+            }
+            else if interval < 24.0 * 60 * 60 * 30{
+                timeSinceDate = Int(interval / (60.0 * 60.0 * 24.0))
+                StringTimeSinceDate = "\(timeSinceDate) days ago"
+            }
+            else{
+                timeSinceDate = Int(interval / (60.0 * 60.0 * 24.0 * 30.0))
+                StringTimeSinceDate = "\(timeSinceDate) months ago"
+            }
+            let comTime = StringTimeSinceDate
             let comLikes = comment.likes!
             commentsArray.append(comText)
             timeArray.append(comTime)

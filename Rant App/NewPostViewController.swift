@@ -134,15 +134,7 @@ class NewPostViewController: UIViewController, CLLocationManagerDelegate, UIPick
                 print("server reported an error: \(err)")
             }
             
-            let saveTags = backendless.data.of(SavedTags.ofClass())
-            var error: Fault?
-            let isDone = saveTags.save(st, fault: &error) as? SavedTags
-            if error == nil{
-                print("Tag saved: \(isDone!.objectId)")
-            }
-            else{
-                print("Error: \(error)")
-            }
+            checkTagAndSave(x)
         }
 
     }
@@ -185,6 +177,29 @@ class NewPostViewController: UIViewController, CLLocationManagerDelegate, UIPick
         if textView.textColor == UIColor.lightGrayColor(){
             textView.text = nil
             textView.textColor = UIColor.blackColor()
+        }
+    }
+    func checkTagAndSave(tagCheck: String!){
+        let wc = "tag = '\(tagCheck)'"
+        let dq = BackendlessDataQuery()
+        dq.whereClause = wc
+        let tagForCheck = self.backendless.persistenceService.of(SavedTags.ofClass()).find(dq)
+        let cp = tagForCheck.getCurrentPage()
+        for tag in cp as! [SavedTags]{
+            if tag.tag == nil || tag.tag == ""{
+                let saveTags = backendless.data.of(SavedTags.ofClass())
+                var error: Fault?
+                let isDone = saveTags.save(tag.tag, fault: &error) as? SavedTags
+                if error == nil{
+                    print("Tag saved: \(isDone!.objectId)")
+                }
+                else{
+                    print("Error: \(error)")
+                }
+            }
+            else{
+                print("Tag already exists: \(tag.objectId)")
+            }
         }
     }
 

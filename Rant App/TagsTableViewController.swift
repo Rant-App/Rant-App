@@ -24,6 +24,9 @@ class TagsTableViewController: UITableViewController {
     
     var tagsInCell = ""
     
+    var timeSinceDate: Int!
+    var StringTimeSinceDate: String!
+    
     var time = ""
     var test: Int!
     var count: String = ""
@@ -146,7 +149,27 @@ class TagsTableViewController: UITableViewController {
                 for post in cp as! [Posts] {
                     let postText = post.post!
                     count = post.likes!
-                    time = String(post.created)
+                    let df = NSDate()
+                    let created = post.created
+                    let interval = df.timeIntervalSinceDate(created)
+                    if interval < 60.0 * 60.0{
+                        timeSinceDate = Int(interval / (60.0))
+                        StringTimeSinceDate = "\(timeSinceDate) minutes ago"
+                    }
+                    else if interval < 24.0 * 60 * 60{
+                        timeSinceDate = Int(interval / (60.0 * 60.0))
+                        StringTimeSinceDate = "\(timeSinceDate) hours ago"
+                    }
+                    else if interval < 24.0 * 60 * 60 * 30{
+                        timeSinceDate = Int(interval / (60.0 * 60.0 * 24.0))
+                        StringTimeSinceDate = "\(timeSinceDate) days ago"
+                    }
+                    else{
+                        timeSinceDate = Int(interval / (60.0 * 60.0 * 24.0 * 30.0))
+                        StringTimeSinceDate = "\(timeSinceDate) months ago"
+                    }
+                    time = StringTimeSinceDate
+
                     timeArray.append(time)
                     likesArray.append(count)
                     postArray.append(postText)
