@@ -64,27 +64,37 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         }
         return returnCount
     }
-    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.searchBar.text == ""{
-            return savedTags.count
-        }
-        else if numberOfSectionsInTableView(tableView) == 1{
+        if numberOfSectionsInTableView(tableView) == 1{
             if searchController.active && searchController.searchBar.text != "" {
                 return filteredSavedTags.count
+            } else{
+                return savedTags.count
             }
-            return savedTags.count
         } else if numberOfSectionsInTableView(tableView) == 2{
-            if searchController.active && searchController.searchBar.text != "" {
-                return filteredSavedTags.count + 1
+            if section == 1{
+                return 1
+            } else{
+                if searchController.active && searchController.searchBar.text != "" {
+                    return filteredSavedTags.count
+                }else{
+                    return savedTags.count
+                }
             }
-            return savedTags.count + 1
         } else{
-            if searchController.active && searchController.searchBar.text != "" {
-                return filteredSavedTags.count + 2
+            if section == 1{
+                return 1
             }
-            return savedTags.count + 2
-
+            else if section == 2{
+                return 1
+            }
+            else{
+                if searchController.active && searchController.searchBar.text != "" {
+                    return filteredSavedTags.count
+                }else{
+                    return savedTags.count
+                }
+            }
         }
     }
     
@@ -103,7 +113,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
                 return c
             }
             
-        } else{
+        } else if numberOfSectionsInTableView(tableView) == 3{
             if indexPath.section == 0{
                 let c2 = tableView.dequeueReusableCellWithIdentifier("AddTag", forIndexPath: indexPath) as! SearchAddCells
                 c2.TextLabel.text = text
@@ -133,7 +143,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
             tag = savedTags[indexPath.row]
         }
         cell.tagLabel.text = tag
-        cell.tagBtn.setTitle(tag, forState: .Normal)
         return cell
     }
     

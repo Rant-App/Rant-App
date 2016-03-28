@@ -60,6 +60,7 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
         let num = String(numCommentsArray[indexPath.row].count)
         let textColor = colorArray[indexPath.row]
         tagsArray.removeAtIndex(0)
+        //problem if only one tag - no comma detected
         let currentTags = tagsArray[indexPath.row].joinWithSeparator(", ")
         
         let currentLikes = likesArray[indexPath.row]
