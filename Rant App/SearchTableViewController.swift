@@ -60,14 +60,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
             }
         }
         else{
-            returnCount = 0
+            returnCount = 1
         }
         return returnCount
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.searchBar.text == ""{
-            return 0
+            return savedTags.count
         }
         else if numberOfSectionsInTableView(tableView) == 1{
             if searchController.active && searchController.searchBar.text != "" {
@@ -75,27 +75,15 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
             }
             return savedTags.count
         } else if numberOfSectionsInTableView(tableView) == 2{
-            if section == 1{
-                return 1
-            } else{
-                if searchController.active && searchController.searchBar.text != "" {
-                    return filteredSavedTags.count
-                }
-                return savedTags.count
+            if searchController.active && searchController.searchBar.text != "" {
+                return filteredSavedTags.count + 1
             }
+            return savedTags.count + 1
         } else{
-            if section == 1{
-                return 1
+            if searchController.active && searchController.searchBar.text != "" {
+                return filteredSavedTags.count + 2
             }
-            else if section == 2{
-                return 1
-            }
-            else{
-                if searchController.active && searchController.searchBar.text != "" {
-                    return filteredSavedTags.count
-                }
-                return savedTags.count
-            }
+            return savedTags.count + 2
 
         }
     }
@@ -105,36 +93,36 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         let text = searchController.searchBar.text!
         if numberOfSectionsInTableView(tableView) == 2{
             if indexPath.section == 0{
-                let cell = tableView.dequeueReusableCellWithIdentifier("LikeTag", forIndexPath: indexPath) as! SearchAddCells
-                cell.TextLabel.text = text
-                cell.AddBtn.indexPath = indexPath.row
-                cell.AddBtn.section = 1
-                cell.AddBtn.tagText = text
-                cell.AddBtn.addTarget(self, action: "addBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-                addFavoriteTagButton = cell.AddBtn
-                return cell
+                let c = tableView.dequeueReusableCellWithIdentifier("LikeTag", forIndexPath: indexPath) as! SearchAddCells
+                c.TextLabel.text = text
+                c.AddBtn.indexPath = indexPath.row
+                c.AddBtn.section = 1
+                c.AddBtn.tagText = text
+                c.AddBtn.addTarget(self, action: "addBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+                addFavoriteTagButton = c.AddBtn
+                return c
             }
             
         } else{
             if indexPath.section == 0{
-                let cell = tableView.dequeueReusableCellWithIdentifier("AddTag", forIndexPath: indexPath) as! SearchAddCells
-                cell.TextLabel.text = text
-                cell.AddBtn.indexPath = indexPath.row
-                cell.AddBtn.section = 0
-                cell.AddBtn.tagText = text
-                cell.AddBtn.addTarget(self, action: "addBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-                addSavedTagButton = cell.AddBtn
-                return cell
+                let c2 = tableView.dequeueReusableCellWithIdentifier("AddTag", forIndexPath: indexPath) as! SearchAddCells
+                c2.TextLabel.text = text
+                c2.AddBtn.indexPath = indexPath.row
+                c2.AddBtn.section = 0
+                c2.AddBtn.tagText = text
+                c2.AddBtn.addTarget(self, action: "addBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+                addSavedTagButton = c2.AddBtn
+                return c2
                 
             } else if indexPath.section == 1{
-                let cell = tableView.dequeueReusableCellWithIdentifier("LikeTag", forIndexPath: indexPath) as! SearchAddCells
-                cell.TextLabel.text = text
-                cell.AddBtn.indexPath = indexPath.row
-                cell.AddBtn.section = 1
-                cell.AddBtn.tagText = text
-                cell.AddBtn.addTarget(self, action: "addBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-                addFavoriteTagButton = cell.AddBtn
-                return cell
+                let c3 = tableView.dequeueReusableCellWithIdentifier("LikeTag", forIndexPath: indexPath) as! SearchAddCells
+                c3.TextLabel.text = text
+                c3.AddBtn.indexPath = indexPath.row
+                c3.AddBtn.section = 1
+                c3.AddBtn.tagText = text
+                c3.AddBtn.addTarget(self, action: "addBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+                addFavoriteTagButton = c3.AddBtn
+                return c3
             }
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("SearchedTag", forIndexPath: indexPath) as! SearchTableViewCell
@@ -145,7 +133,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
             tag = savedTags[indexPath.row]
         }
         cell.tagLabel.text = tag
-        cell.tagBtn.tagText = tag
+        cell.tagBtn.setTitle(tag, forState: .Normal)
         return cell
     }
     
