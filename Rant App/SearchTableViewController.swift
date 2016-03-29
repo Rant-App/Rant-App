@@ -65,6 +65,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         return returnCount
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(section)
+        print(numberOfSectionsInTableView(tableView))
         if numberOfSectionsInTableView(tableView) == 1{
             if searchController.active && searchController.searchBar.text != "" {
                 return filteredSavedTags.count
@@ -72,7 +74,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
                 return savedTags.count
             }
         } else if numberOfSectionsInTableView(tableView) == 2{
-            if section == 1{
+            if section == 0{
                 return 1
             } else{
                 if searchController.active && searchController.searchBar.text != "" {
@@ -82,10 +84,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
                 }
             }
         } else{
-            if section == 1{
+            if section == 0{
                 return 1
             }
-            else if section == 2{
+            else if section == 1{
                 return 1
             }
             else{

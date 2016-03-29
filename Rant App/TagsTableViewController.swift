@@ -56,8 +56,12 @@ class TagsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("TagsTableViewCell", forIndexPath: indexPath) as! PostTableViewCell
         let num = String(numCommentsArray[indexPath.row].count)
         let textColor = colorArray[indexPath.row]
-        tagsArray.removeAtIndex(0)
-        let currentTags = tagsArray[indexPath.row].joinWithSeparator(", ")
+        var currentTags: String!
+        if tagsArray[indexPath.row].count <= 1{
+            currentTags = tagsArray[indexPath.row][0]
+        } else{
+            currentTags = tagsArray[indexPath.row].joinWithSeparator(", ")
+        }
         
         let currentLikes = likesArray[indexPath.row]
         
@@ -81,6 +85,7 @@ class TagsTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         loadData()
+        tagsArray.removeAtIndex(0)
         super.viewDidLoad()
         
         self.navigationItem.setHidesBackButton(true, animated: true)

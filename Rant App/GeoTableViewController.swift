@@ -59,9 +59,18 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
         
         let num = String(numCommentsArray[indexPath.row].count)
         let textColor = colorArray[indexPath.row]
-        tagsArray.removeAtIndex(0)
+        
         //problem if only one tag - no comma detected
-        let currentTags = tagsArray[indexPath.row].joinWithSeparator(", ")
+        var currentTags: String!
+        print(tagsArray)
+        print(tagsArray[0][0])
+        print(indexPath.row)
+        print(tagsArray.count)
+        if tagsArray[indexPath.row].count == 1{
+            currentTags = tagsArray[indexPath.row][0]
+        } else{
+            currentTags = tagsArray[indexPath.row].joinWithSeparator(", ")
+        }
         
         let currentLikes = likesArray[indexPath.row]
         
@@ -82,11 +91,13 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
         return 1
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(test.count)
         return test.count
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        tagsArray.removeAtIndex(0)
         
         self.locationManager.requestAlwaysAuthorization()
         
