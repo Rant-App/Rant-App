@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchedTagTableViewController: UITableViewController {
-    var clickedTag: String!
+    var clickedTag: String = ""
     
     
     let backendless = Backendless.sharedInstance()
@@ -114,6 +114,7 @@ class SearchedTagTableViewController: UITableViewController {
         
         let results = self.backendless.persistenceService.of(Tags.ofClass()).find(query)
         
+        
         let currentPage = results.getCurrentPage()
         
         for x in currentPage as! [Tags]{
@@ -130,6 +131,7 @@ class SearchedTagTableViewController: UITableViewController {
             let q = BackendlessDataQuery()
             q.whereClause = w
             let posts = self.backendless.persistenceService.of(Posts.ofClass()).find(q)
+            
             
             let cp = posts.getCurrentPage()
             

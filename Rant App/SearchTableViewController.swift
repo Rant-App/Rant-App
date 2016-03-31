@@ -141,8 +141,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         var tag: String!
         if searchController.active && searchController.searchBar.text != "" {
             tag = filteredSavedTags[indexPath.row]
+            print("FILTERED")
         } else {
             tag = savedTags[indexPath.row]
+            print("SAVED")
         }
         cell.tagLabel.text = tag
         return cell
@@ -155,6 +157,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
                 let tag = savedTags[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! SearchedTagTableViewController
                 controller.clickedTag = tag
+                print(tag)
                 
             }
         }
@@ -205,7 +208,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search here..."
         searchController.searchBar.sizeToFit()
-        searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
@@ -215,6 +217,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredSavedTags.removeAll()
         let whereclause = "tag LIKE '\(searchText.lowercaseString)%'"
         let query = BackendlessDataQuery()
         query.whereClause = whereclause
