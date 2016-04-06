@@ -141,10 +141,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         var tag: String!
         if searchController.active && searchController.searchBar.text != "" {
             tag = filteredSavedTags[indexPath.row]
-            print("FILTERED")
         } else {
             tag = savedTags[indexPath.row]
-            print("SAVED")
         }
         cell.tagLabel.text = tag
         return cell
@@ -153,12 +151,17 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "tagBtnClicked" {
+            print(tableView.indexPathForSelectedRow)
             if let indexPath = tableView.indexPathForSelectedRow{
+                print("fff")
                 let tag = savedTags[indexPath.row]
+                print("tag: \(tag)")
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! SearchedTagTableViewController
                 controller.clickedTag = tag
                 print(tag)
                 
+            } else{
+                print("why")
             }
         }
     }

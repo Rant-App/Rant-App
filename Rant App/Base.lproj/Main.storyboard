@@ -425,12 +425,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is where the post goes" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pti-ak-nfL">
-                                            <rect key="frame" x="8" y="0.0" width="286" height="61"/>
-                                            <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mon at 7:06 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6m-Jz-Ioh">
                                             <rect key="frame" x="8" y="69" width="59" height="32"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="7"/>
@@ -460,6 +454,12 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is where the post goes" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pti-ak-nfL">
+                                            <rect key="frame" x="8" y="0.0" width="286" height="61"/>
+                                            <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -478,19 +478,11 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Rants by Tag" id="kVw-yz-6bY">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="Dco-wk-Lde">
-                            <connections>
-                                <segue destination="bky-UW-5Kg" kind="show" id="2V2-Q3-Ex8"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" id="kVw-yz-6bY">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="PQm-Xf-5yz">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="cCK-p1-NHD">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cCK-p1-NHD">
                                 <rect key="frame" x="337" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <segue destination="tZA-OH-mQy" kind="show" id="EkB-QQ-H1g"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -759,9 +751,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fz7-F1-wML"/>
         <segue reference="rfK-QH-ESo"/>
-        <segue reference="ecN-6H-psQ"/>
+        <segue reference="fz7-F1-wML"/>
         <segue reference="11U-AD-oNX"/>
+        <segue reference="twq-fg-EaD"/>
     </inferredMetricsTieBreakers>
 </document>
