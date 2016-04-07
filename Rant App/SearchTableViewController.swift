@@ -27,6 +27,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
     
     var numberOfSections: Int!
     
+    var selectedIndexPath: NSIndexPath!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSearchController()
@@ -151,17 +153,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "tagBtnClicked" {
-            print(tableView.indexPathForSelectedRow)
             if let indexPath = tableView.indexPathForSelectedRow{
-                print("fff")
                 let tag = savedTags[indexPath.row]
-                print("tag: \(tag)")
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! SearchedTagTableViewController
                 controller.clickedTag = tag
-                print(tag)
-                
-            } else{
-                print("why")
             }
         }
     }
@@ -204,6 +199,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         }
         
     }
+    
     func configureSearchController() {
         // Initialize and perform a minimum configuration to the search controller.
         searchController = UISearchController(searchResultsController: nil)

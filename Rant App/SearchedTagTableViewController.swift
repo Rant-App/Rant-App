@@ -84,15 +84,10 @@ class SearchedTagTableViewController: UITableViewController {
         
         loadData()
         tagsArray.removeAtIndex(0)
-        self.navigationItem.setHidesBackButton(false, animated: true)
         
         self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
         
-        print("clickedtag: \(clickedTag)")
-        
-        let backButton = UIBarButtonItem(title: "Search", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-        navigationItem.hidesBackButton = false
-        navigationItem.backBarButtonItem = backButton
+        self.navigationItem.title = clickedTag
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {

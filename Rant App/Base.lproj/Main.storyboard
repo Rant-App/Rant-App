@@ -371,17 +371,11 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3s-e3-9hn">
-                                            <rect key="frame" x="322" y="14" width="22" height="22"/>
-                                            <connections>
-                                                <segue destination="jZq-08-R47" kind="show" identifier="tagBtnClicked" id="fOU-ho-dw7"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="tagBtn" destination="q3s-e3-9hn" id="QAg-tr-zWx"/>
                                     <outlet property="tagLabel" destination="Y0n-HI-yng" id="BCA-nw-cNM"/>
+                                    <segue destination="jZq-08-R47" kind="show" identifier="tagBtnClicked" id="LEQ-zQ-yxI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -407,7 +401,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="960.5" y="244.5"/>
+            <point key="canvasLocation" x="962.5" y="237.5"/>
         </scene>
         <!--SearchedTagTableViewController-->
         <scene sceneID="ce4-af-adZ">
@@ -479,6 +473,12 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="kVw-yz-6bY">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="ZX7-Dr-pse">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mha-Ku-2xp">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="PQm-Xf-5yz">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cCK-p1-NHD">
                                 <rect key="frame" x="337" y="11" width="22" height="22"/>
