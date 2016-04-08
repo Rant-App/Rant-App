@@ -57,15 +57,10 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostTableViewCell", forIndexPath: indexPath) as! PostTableViewCell
         
-        let num = String(numCommentsArray[indexPath.row].count)
+        let num = numCommentsArray[indexPath.row][0]
         let textColor = colorArray[indexPath.row]
         
-        //problem if only one tag - no comma detected
         var currentTags: String!
-        print(tagsArray)
-        print(tagsArray[0][0])
-        print(indexPath.row)
-        print(tagsArray.count)
         if tagsArray[indexPath.row].count == 1{
             currentTags = tagsArray[indexPath.row][0]
         } else{
@@ -82,7 +77,7 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
         cell.TimeStampLabel.text = postTime
         cell.PostTextLabel.textColor = textColor
         cell.TagsLabel.text = currentTags
-        cell.ReplyButton.setTitle("\(num) replies", forState: .Normal)
+        cell.replyLabel.text = "\(num) replies"
         cell.CountLabel.text = currentLikes
         
         return cell
@@ -96,9 +91,10 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        numCommentsArray.removeAtIndex(0)
         loadData()
         tagsArray.removeAtIndex(0)
-        
+        print(numCommentsArray)
         self.locationManager.requestAlwaysAuthorization()
         
         // For use in foreground
@@ -129,11 +125,12 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "geo" {
+            print("this is shit")
             if let indexPath = tableView.indexPathForSelectedRow{
                 let pid = postidArray[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! CommentsTableViewController
                 controller.postid = pid
-                
+                print("postid: \(pid)")
             }
         }
     }

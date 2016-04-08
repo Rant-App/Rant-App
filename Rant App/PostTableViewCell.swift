@@ -16,8 +16,9 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var TagsLabel: UILabel!
     @IBOutlet weak var CountLabel: UILabel!
     @IBOutlet weak var ClapImage: UIImageView!
+    @IBOutlet weak var replyLabel: UILabel!
     
-    @IBOutlet weak var ReplyButton: UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

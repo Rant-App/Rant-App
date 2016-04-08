@@ -53,7 +53,7 @@ class ProfileTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ProfileTableViewCell", forIndexPath: indexPath) as! PostTableViewCell
-        let num = String(numCommentsArray[indexPath.row].count)
+        let num = numCommentsArray[indexPath.row][0]
         let textColor = colorArray[indexPath.row]
         var currentTags: String!
         if tagsArray[indexPath.row].count <= 1{
@@ -71,7 +71,7 @@ class ProfileTableViewController: UITableViewController {
         cell.PostTextLabel.textColor = textColor
         cell.TagsLabel.text = currentTags
         print(cell.TagsLabel.text)
-        cell.ReplyButton.setTitle("\(num) replies", forState: .Normal)
+        cell.replyLabel.text = "\(num) replies"
         cell.CountLabel.text = currentLikes
 
         
@@ -88,7 +88,7 @@ class ProfileTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        numCommentsArray.removeAtIndex(0)
         loadData()
         tagsArray.removeAtIndex(0)
         self.navigationItem.setHidesBackButton(true, animated: true)
