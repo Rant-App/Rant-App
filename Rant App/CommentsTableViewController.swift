@@ -27,9 +27,32 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
     
     var timeSinceDate: Int!
     var StringTimeSinceDate: String!
+    
+    var postText = ""
+    var tagsArray: [String] = []
+    var postTimeSinceDate: Int!
+    var postStringTimeSinceDate: String!
+    var postTime: String!
+    var numOfComments: Int!
+    var color = "black"
+    var uicolor: UIColor!
+    
+    let red = UIColor.redColor()
+    let purple = UIColor.purpleColor()
+    let black = UIColor.blackColor()
+    let brown = UIColor.brownColor()
+    let blue = UIColor.blueColor()
+    let green = UIColor.greenColor()
+    let yellow = UIColor.yellowColor()
+    let orange = UIColor.orangeColor()
+    
+    var likes: String!
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if indexPath.section == 0{
+            
+        }
         let cell = tableView.dequeueReusableCellWithIdentifier("CommentsTableViewCell", forIndexPath: indexPath) as! CommentsTableViewCell
         let commentText = commentsArray[indexPath.row]
         let commentTime = timeArray[indexPath.row]
@@ -40,10 +63,15 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
         return cell
     }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commentsArray.count
+        if section == 0{
+            return 1
+        }
+        else{
+            return commentsArray.count
+        }
     }
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 50.0))
@@ -122,8 +150,25 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
             likesArray.append(comLikes)
         }
         
+        let wc = "id = '\(postid)'"
+        let query = BackendlessDataQuery()
+        query.whereClause = wc
         
+        let posts = self.backendless.persistenceService.of(Posts.ofClass()).find(query)
+        
+        let cp = posts.getCurrentPage()
+        
+        for post in cp as! [Posts]{
+            likes = post.likes
+            postText = post.post!
+            let nscreated = post.created!
+            let nsdate = NSDate()
+            let inter = nsdate.timeIntervalSinceDate(nscreated)
+            
+        }
+
     }
+    
     func commentAction(sender: UIButton!){
         let ct = commentView?.text
         let cl = "0"
