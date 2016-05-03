@@ -164,6 +164,23 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
             let nscreated = post.created!
             let nsdate = NSDate()
             let inter = nsdate.timeIntervalSinceDate(nscreated)
+            if inter < 60.0 * 60.0{
+                postTimeSinceDate = Int(inter / 60.0)
+                postStringTimeSinceDate = "\(postTimeSinceDate) minutes ago"
+            }
+            else if inter < 24.0 * 60 * 60{
+                postTimeSinceDate = Int(inter / 60.0 * 60.0)
+                postStringTimeSinceDate = "\(postTimeSinceDate) hours ago"
+            }
+            else if inter < 24.0 * 60 * 60 * 30{
+                postTimeSinceDate = Int(inter / 60.0 * 60.0 * 24.0)
+                postStringTimeSinceDate = "\(postTimeSinceDate) days ago"
+            }
+            else{
+                postTimeSinceDate = Int(inter / 60.0 * 60.0 * 24.0 * 30.0)
+                postStringTimeSinceDate = "\(postTimeSinceDate) months ago"
+            }
+            postTime = postStringTimeSinceDate
             
         }
 
