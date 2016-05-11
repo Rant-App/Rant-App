@@ -51,6 +51,8 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0{
+            let postCell = tableView.dequeueReusableCellWithIdentifier("PostComment", forIndexPath: indexPath) as! PostTableViewCell
+            postCell.PostTextLabel.text = ""
             
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("CommentsTableViewCell", forIndexPath: indexPath) as! CommentsTableViewCell
@@ -181,6 +183,24 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
                 postStringTimeSinceDate = "\(postTimeSinceDate) months ago"
             }
             postTime = postStringTimeSinceDate
+            color = post.color!
+            if color == "red"{
+                uicolor = red
+            } else if color == "blue"{
+                uicolor = blue
+            } else if color == "brown"{
+                uicolor = brown
+            } else if color == "black"{
+                uicolor = black
+            } else if color == "purple"{
+                uicolor = purple
+            } else if color == "green"{
+                uicolor = green
+            } else if color == "yellow"{
+                uicolor = yellow
+            } else if color == "orange"{
+                uicolor = orange
+            }
             
         }
 
