@@ -52,7 +52,9 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             let postCell = tableView.dequeueReusableCellWithIdentifier("PostComment", forIndexPath: indexPath) as! PostTableViewCell
-            postCell.PostTextLabel.text = ""
+            postCell.PostTextLabel.text = postText
+            postCell.CountLabel.text = likes
+            
             
         }
         let cell = tableView.dequeueReusableCellWithIdentifier("CommentsTableViewCell", forIndexPath: indexPath) as! CommentsTableViewCell
