@@ -23,6 +23,7 @@ class TagsTableViewController: UITableViewController {
     var numCommentsArray: [[String]] = [[]]
     
     var tagsInCell = ""
+    var num = 0
     
     var timeSinceDate: Int!
     var StringTimeSinceDate: String!
@@ -72,6 +73,12 @@ class TagsTableViewController: UITableViewController {
         cell.replyLabel.text = "\(num) replies"
         cell.CountLabel.text = currentLikes
         
+        let img = cell.ClapImage
+        
+        let tap = UITapGestureRecognizer(target: self, action: Selector("tapped:"))
+        img.addGestureRecognizer(tap)
+        img.userInteractionEnabled = true
+        
         return cell
     }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -105,12 +112,63 @@ class TagsTableViewController: UITableViewController {
         if segue.identifier == "tags" {
             if let indexPath = tableView.indexPathForSelectedRow{
                 let pid = postIdArray[indexPath.row]
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! CommentsTableViewController
+                let controller = segue.destinationViewController as! CommentsTableViewController
                 controller.postid = pid
                 
             }
         }
     }
+    func tapped(recognizer: UITapGestureRecognizer){
+        let tappedLocation = recognizer.locationInView(self.tableView)
+        if let tappedIndexPath = tableView.indexPathForRowAtPoint(tappedLocation) {
+            let tappedID = postIdArray[tappedIndexPath.row]
+            print(tappedID)
+            //add likes to database
+            let dq = BackendlessDataQuery()
+            let wc = "postid = '\(tappedID)'"
+            dq.whereClause = wc
+            
+            let postsForLikes = self.backendless.persistenceService.of(Likes.ofClass()).find(dq)
+            let np = postsForLikes.data
+            let cp = postsForLikes.getCurrentPage()
+            if cp.count > 0 {
+                for post in cp as! [Likes] {
+                    if post.ownerId != id {
+                        AddLikeSync(tappedID)
+                        loadData()
+                        self.tableView.reloadData()
+                        refreshControl!.endRefreshing()
+                        
+                    } else{
+                        print("Already Liked")
+                    }
+                }
+            } else {
+                AddLikeSync(tappedID)
+                loadData()
+                self.tableView.reloadData()
+                refreshControl!.endRefreshing()
+            }
+            
+        }
+    }
+    func AddLikeSync(pid: String){
+        var p = Likes()
+        let dataStore = backendless.data.of(Likes.ofClass())
+        p.ownerId = id
+        p.postid = pid
+        // save object synchronously
+        var error: Fault?
+        let result = dataStore.save(p, fault: &error) as? Likes
+        if error == nil {
+            print("Contact has been saved: \(result!.objectId)")
+        }
+        else {
+            print("Server reported an error: \(error)")
+        }
+        
+    }
+
 
     func loadData(){
         let whereClause = "id = '\(id)'"
@@ -154,7 +212,6 @@ class TagsTableViewController: UITableViewController {
                 
                 for post in cp as! [Posts] {
                     let postText = post.post!
-                    count = post.likes!
                     let df = NSDate()
                     let created = post.created
                     let interval = df.timeIntervalSinceDate(created)
@@ -177,11 +234,22 @@ class TagsTableViewController: UITableViewController {
                     time = StringTimeSinceDate
 
                     timeArray.append(time)
-                    likesArray.append(count)
                     postArray.append(postText)
                     color = post.color!
                     
                     postid = post.objectId!
+                    
+                    let clauseLikes = "postid = '\(postid)'"
+                    let queryLikes = BackendlessDataQuery()
+                    queryLikes.whereClause = clauseLikes
+                    let likesResult = self.backendless.persistenceService.of(Likes.ofClass()).find(queryLikes)
+                    let likesPage = likesResult.getCurrentPage()
+                    for like in likesPage as! [Likes] {
+                        num += 1
+                    }
+                    count = String(num)
+                    likesArray.append(count)
+                    num = 0
                     
                     let clauseTags = "postid = '\(postid)'"
                     let queryTags = BackendlessDataQuery()

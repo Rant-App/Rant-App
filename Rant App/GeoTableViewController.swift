@@ -32,6 +32,8 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
     var timeSinceDate: Int!
     var StringTimeSinceDate: String!
     
+    var num = 0
+    
     var time = ""
     var test: [AnyObject]!
     var count: String = ""
@@ -54,10 +56,11 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
     var postidArray: [String] = []
     var timeArray: [String] = []
     
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostTableViewCell", forIndexPath: indexPath) as! PostTableViewCell
         
-        let num = numCommentsArray[indexPath.row][0]
+        let numb = numCommentsArray[indexPath.row][0]
         let textColor = colorArray[indexPath.row]
         
         var currentTags: String!
@@ -77,8 +80,14 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
         cell.TimeStampLabel.text = postTime
         cell.PostTextLabel.textColor = textColor
         cell.TagsLabel.text = currentTags
-        cell.replyLabel.text = "\(num) replies"
+        cell.replyLabel.text = "\(numb) replies"
         cell.CountLabel.text = currentLikes
+        
+        let img = cell.ClapImage
+        
+        let tap = UITapGestureRecognizer(target: self, action: Selector("tapped:"))
+        img.addGestureRecognizer(tap)
+        img.userInteractionEnabled = true
         
         return cell
     }
@@ -91,6 +100,7 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         numCommentsArray.removeAtIndex(0)
         loadData()
         tagsArray.removeAtIndex(0)
@@ -125,14 +135,63 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "geo" {
-            print("this is shit")
             if let indexPath = tableView.indexPathForSelectedRow{
                 let pid = postidArray[indexPath.row]
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! CommentsTableViewController
+                let controller = segue.destinationViewController as! CommentsTableViewController
                 controller.postid = pid
                 print("postid: \(pid)")
             }
         }
+    }
+    func tapped(recognizer: UITapGestureRecognizer){
+        let tappedLocation = recognizer.locationInView(self.tableView)
+        if let tappedIndexPath = tableView.indexPathForRowAtPoint(tappedLocation) {
+            let tappedID = postidArray[tappedIndexPath.row]
+            print(tappedID)
+            //add likes to database
+            let dq = BackendlessDataQuery()
+            let wc = "postid = '\(tappedID)'"
+            dq.whereClause = wc
+            
+            let postsForLikes = self.backendless.persistenceService.of(Likes.ofClass()).find(dq)
+            let np = postsForLikes.data
+            let cp = postsForLikes.getCurrentPage()
+            if cp.count > 0 {
+                for post in cp as! [Likes] {
+                    if post.ownerId != id {
+                        AddLikeSync(tappedID)
+                        loadData()
+                        self.tableView.reloadData()
+                        refreshControl!.endRefreshing()
+                        
+                    } else{
+                        print("Already Liked")
+                    }
+                }
+            } else {
+                AddLikeSync(tappedID)
+                loadData()
+                self.tableView.reloadData()
+                refreshControl!.endRefreshing()
+            }
+            
+        }
+    }
+    func AddLikeSync(pid: String){
+        var p = Likes()
+        let dataStore = backendless.data.of(Likes.ofClass())
+        p.ownerId = id
+        p.postid = pid
+        // save object synchronously
+        var error: Fault?
+        let result = dataStore.save(p, fault: &error) as? Likes
+        if error == nil {
+            print("Contact has been saved: \(result!.objectId)")
+        }
+        else {
+            print("Server reported an error: \(error)")
+        }
+
     }
 
     func loadData(){
@@ -169,14 +228,24 @@ class GeoTableViewController: UITableViewController, CLLocationManagerDelegate {
             }
             time = StringTimeSinceDate
             timeArray.append(time)
-            count = post.likes!
-            likesArray.append(count)
             
             postid = post.objectId!
             postidArray.append(postid)
             color = post.color!
             let unwrappedPostText = postText!
             postArray.append(unwrappedPostText)
+            
+            let clauseLikes = "postid = '\(postid)'"
+            let queryLikes = BackendlessDataQuery()
+            queryLikes.whereClause = clauseLikes
+            let likesResult = self.backendless.persistenceService.of(Likes.ofClass()).find(queryLikes)
+            let likesPage = likesResult.getCurrentPage()
+            for like in likesPage as! [Likes] {
+                num += 1
+            }
+            count = String(num)
+            likesArray.append(count)
+            num = 0
             
             let clauseTags = "postid = '\(postid)'"
             let queryTags = BackendlessDataQuery()

@@ -7,7 +7,6 @@
 //
 
 class Posts: NSObject {
-    var likes : String?
     var post : String?
     var objectId : String?
     var id : String?

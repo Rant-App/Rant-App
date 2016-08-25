@@ -98,7 +98,6 @@ class NewPostViewController: UIViewController, CLLocationManagerDelegate, UIPick
         let posts = Posts()
         posts.post = postText
         posts.id = id
-        posts.likes = "0"
         posts.color = color
         
         let geoPoint = GeoPoint.geoPoint(GEO_POINT(latitude: latitude, longitude: longitude)) as! GeoPoint

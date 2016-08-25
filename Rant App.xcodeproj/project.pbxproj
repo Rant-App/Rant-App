@@ -19,6 +19,8 @@
 		4FEA0FDE1C870F7300139DEF /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FDD1C870F7300139DEF /* CommentsTableViewController.swift */; };
 		4FEA0FE01C870FAB00139DEF /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEA0FDF1C870FAB00139DEF /* CommentsTableViewCell.swift */; };
 		5BB1EF3709CC29A4C9F41060 /* Pods_Rant_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7CDC2DDA2E3F5F8D329C5D /* Pods_Rant_App.framework */; };
+		937258E21D6B282300277564 /* Likes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937258E11D6B282300277564 /* Likes.swift */; };
+		937258E41D6B3C8E00277564 /* CommentLikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937258E31D6B3C8E00277564 /* CommentLikes.swift */; };
 		C167BD531C84CB380010A2C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C167BD521C84CB380010A2C2 /* AppDelegate.swift */; };
 		C167BD551C84CB380010A2C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C167BD541C84CB380010A2C2 /* ViewController.swift */; };
 		C167BD581C84CB380010A2C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C167BD561C84CB380010A2C2 /* Main.storyboard */; };
@@ -68,6 +70,8 @@
 		4FEA0FDF1C870FAB00139DEF /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
 		58E2553E62999CC39120390C /* Pods-Rant App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rant App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rant App/Pods-Rant App.release.xcconfig"; sourceTree = "<group>"; };
 		85BD28973958542F5D704F9D /* Pods-Rant App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rant App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rant App/Pods-Rant App.debug.xcconfig"; sourceTree = "<group>"; };
+		937258E11D6B282300277564 /* Likes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Likes.swift; sourceTree = "<group>"; };
+		937258E31D6B3C8E00277564 /* CommentLikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentLikes.swift; sourceTree = "<group>"; };
 		C167BD4F1C84CB380010A2C2 /* Rant App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rant App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C167BD521C84CB380010A2C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C167BD541C84CB380010A2C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				C167BD541C84CB380010A2C2 /* ViewController.swift */,
 				C167BD561C84CB380010A2C2 /* Main.storyboard */,
 				4FEA0FD31C8702EE00139DEF /* Posts.swift */,
+				937258E11D6B282300277564 /* Likes.swift */,
 				4FEA0FDD1C870F7300139DEF /* CommentsTableViewController.swift */,
 				4FEA0FDF1C870FAB00139DEF /* CommentsTableViewCell.swift */,
 				4FEA0FDB1C87086000139DEF /* Comments.swift */,
@@ -173,6 +178,7 @@
 				4FA5E5091C944AB800D6282D /* SearchedUIButton.swift */,
 				4FA5E5071C94479600D6282D /* AddUIButton.swift */,
 				C1A4AF181C860F82000DC1AD /* TagsTableViewController.swift */,
+				937258E31D6B3C8E00277564 /* CommentLikes.swift */,
 				C1A4AF161C860F47000DC1AD /* GeoTableViewController.swift */,
 				C1A4AF141C860A0B000DC1AD /* InitialTabBarController.swift */,
 				C167BD591C84CB380010A2C2 /* Assets.xcassets */,
@@ -410,7 +416,9 @@
 				C1A4AF151C860A0B000DC1AD /* InitialTabBarController.swift in Sources */,
 				4FA5E5081C94479600D6282D /* AddUIButton.swift in Sources */,
 				C1A4AF271C861501000DC1AD /* SearchTableViewCell.swift in Sources */,
+				937258E41D6B3C8E00277564 /* CommentLikes.swift in Sources */,
 				4FEA0FDA1C87047700139DEF /* FavoriteTags.swift in Sources */,
+				937258E21D6B282300277564 /* Likes.swift in Sources */,
 				C167BD531C84CB380010A2C2 /* AppDelegate.swift in Sources */,
 				C1A4AF1F1C8612A4000DC1AD /* SettingsViewController.swift in Sources */,
 				4F5B608D1C92227B00D59FB4 /* SearchAddCells.swift in Sources */,

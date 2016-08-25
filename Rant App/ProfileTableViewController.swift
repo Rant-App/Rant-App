@@ -36,6 +36,8 @@ class ProfileTableViewController: UITableViewController {
     var color = "black"
     var uicolor: UIColor!
     
+    var num = 0
+    
     let red = UIColor.redColor()
     let purple = UIColor.purpleColor()
     let black = UIColor.blackColor()
@@ -73,7 +75,12 @@ class ProfileTableViewController: UITableViewController {
         print(cell.TagsLabel.text)
         cell.replyLabel.text = "\(num) replies"
         cell.CountLabel.text = currentLikes
-
+        
+        let img = cell.ClapImage
+        
+        let tap = UITapGestureRecognizer(target: self, action: Selector("tapped:"))
+        img.addGestureRecognizer(tap)
+        img.userInteractionEnabled = true
         
         return cell
     }
@@ -107,12 +114,63 @@ class ProfileTableViewController: UITableViewController {
         if segue.identifier == "profile" {
             if let indexPath = tableView.indexPathForSelectedRow{
                 let pid = postidArray[indexPath.row]
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! CommentsTableViewController
+                let controller = segue.destinationViewController as! CommentsTableViewController
                 controller.postid = pid
                 
             }
         }
     }
+    func tapped(recognizer: UITapGestureRecognizer){
+        let tappedLocation = recognizer.locationInView(self.tableView)
+        if let tappedIndexPath = tableView.indexPathForRowAtPoint(tappedLocation) {
+            let tappedID = postidArray[tappedIndexPath.row]
+            print(tappedID)
+            //add likes to database
+            let dq = BackendlessDataQuery()
+            let wc = "postid = '\(tappedID)'"
+            dq.whereClause = wc
+            
+            let postsForLikes = self.backendless.persistenceService.of(Likes.ofClass()).find(dq)
+            let np = postsForLikes.data
+            let cp = postsForLikes.getCurrentPage()
+            if cp.count > 0 {
+                for post in cp as! [Likes] {
+                    if post.ownerId != id {
+                        AddLikeSync(tappedID)
+                        loadData()
+                        self.tableView.reloadData()
+                        refreshControl!.endRefreshing()
+                        
+                    } else{
+                        print("Already Liked")
+                    }
+                }
+            } else {
+                AddLikeSync(tappedID)
+                loadData()
+                self.tableView.reloadData()
+                refreshControl!.endRefreshing()
+            }
+            
+        }
+    }
+    func AddLikeSync(pid: String){
+        var p = Likes()
+        let dataStore = backendless.data.of(Likes.ofClass())
+        p.ownerId = id
+        p.postid = pid
+        // save object synchronously
+        var error: Fault?
+        let result = dataStore.save(p, fault: &error) as? Likes
+        if error == nil {
+            print("Contact has been saved: \(result!.objectId)")
+        }
+        else {
+            print("Server reported an error: \(error)")
+        }
+        
+    }
+
 
     func loadData(){
         let whereClause = "id = '\(id)'"
@@ -129,8 +187,6 @@ class ProfileTableViewController: UITableViewController {
             let postText = post.post!
             postArray.append(postText)
             
-            count = post.likes!
-            likesArray.append(count)
             let df = NSDate()
             let created = post.created
             let interval = df.timeIntervalSinceDate(created)
@@ -158,6 +214,18 @@ class ProfileTableViewController: UITableViewController {
             postidArray.append(postid)
             
             color = post.color!
+            
+            let clauseLikes = "postid = '\(postid)'"
+            let queryLikes = BackendlessDataQuery()
+            queryLikes.whereClause = clauseLikes
+            let likesResult = self.backendless.persistenceService.of(Likes.ofClass()).find(queryLikes)
+            let likesPage = likesResult.getCurrentPage()
+            for like in likesPage as! [Likes] {
+                num += 1
+            }
+            count = String(num)
+            likesArray.append(count)
+            num = 0
             
             let tagsClause = "postid = '\(postid)'"
             let queryTags = BackendlessDataQuery()

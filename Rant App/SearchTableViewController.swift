@@ -155,7 +155,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating{
         if segue.identifier == "tagBtnClicked" {
             if let indexPath = tableView.indexPathForSelectedRow{
                 let tag = savedTags[indexPath.row]
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! SearchedTagTableViewController
+                let controller = segue.destinationViewController as! SearchedTagTableViewController
                 controller.clickedTag = tag
             }
         }

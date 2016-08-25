@@ -11,6 +11,5 @@ class Comments: NSObject{
     var id : String?
     var postid : String?
     var comment : String?
-    var likes : String?
     var created: NSDate!
 }
