@@ -236,7 +236,7 @@ class CommentsTableViewController: UITableViewController, UITextViewDelegate {
         if section == 1{
             footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 100))
             footerView?.backgroundColor = UIColor.blueColor()
-            commentView = UITextView(frame: CGRect(x: 10, y: 5, width: tableView.bounds.width - 80 , height: 100))
+            commentView = UITextView(frame: CGRect(x: 10, y: 5, width: tableView.bounds.width - 80 , height: 40))
             commentView?.backgroundColor = UIColor.whiteColor()
             commentView?.textContainerInset = UIEdgeInsetsMake(5, 5, 5, 5)
             commentView?.layer.cornerRadius = 2
